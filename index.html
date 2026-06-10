@@ -3,996 +3,447 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZIVQEN | Intelligent Systems for Automated Digital Operations</title>
-  <meta name="description" content="ZIVQEN designs intelligent automation systems, AI workflows, and scalable digital infrastructure that help businesses operate faster and smarter." />
+  <title>ZIVQEN | Intelligence Relay Network</title>
+  <meta name="description" content="ZIVQEN — a futuristic intelligence relay network. Real-time signal processing, neural data streams, and autonomous AI module synchronization." />
+  <meta name="theme-color" content="#05070B" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://zivqen.site/" />
+  <meta property="og:title" content="ZIVQEN | Intelligence Relay Network" />
+  <meta property="og:description" content="Access the neural operations layer of an advanced intelligence relay system." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://zivqen.site/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --primary: #0B1020;
-      --secondary: #2563EB;
-      --accent: #14B8A6;
-      --highlight: #A3E635;
-      --bg: #F8FAFC;
-      --surface: #E2E8F0;
-      --text: #0F172A;
-      --text-muted: #475569;
-      --border: #E2E8F0;
-      --container: 1140px;
-      --radius: 6px;
-      --shadow: 0 1px 3px rgba(11, 16, 32, 0.06);
-      --shadow-hover: 0 4px 12px rgba(11, 16, 32, 0.08);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Inter", sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.7;
-      font-size: 1rem;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(100% - 2.5rem, var(--container));
-      margin-inline: auto;
-    }
-
-    .section {
-      padding: 5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section:last-of-type {
-      border-bottom: none;
-    }
-
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--secondary);
-      margin-bottom: 0.75rem;
-    }
-
-    .section-title {
-      font-family: "Sora", "Inter", sans-serif;
-      font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
-      font-weight: 700;
-      line-height: 1.25;
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
-      color: var(--text);
-    }
-
-    .section-copy {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      max-width: 640px;
-      line-height: 1.75;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Header */
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(248, 250, 252, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid transparent;
-      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .header.scrolled {
-      background: rgba(248, 250, 252, 0.97);
-      border-bottom-color: var(--border);
-      box-shadow: var(--shadow);
-    }
-
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 68px;
-      gap: 1.5rem;
-    }
-
-    .brand {
-      font-family: "Sora", "Inter", sans-serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--primary);
-    }
-
-    .brand span {
-      color: var(--secondary);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--text-muted);
-    }
-
-    .nav-links a {
-      position: relative;
-      transition: color 0.2s ease;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
-      height: 2px;
-      background: var(--secondary);
-      transition: width 0.2s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--secondary);
-    }
-
-    .nav-links a.active::after,
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    /* Hero */
-    .hero {
-      padding: 5.5rem 0 5rem;
-      border-bottom: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: -40%;
-      right: -10%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      bottom: -30%;
-      left: -5%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(20, 184, 166, 0.05) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero .container {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero h1 {
-      font-family: "Sora", "Inter", sans-serif;
-      font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      color: var(--primary);
-      max-width: 720px;
-      margin-bottom: 1.25rem;
-    }
-
-    .hero p {
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin-bottom: 2rem;
-      line-height: 1.75;
-    }
-
-    .cta-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-      border-radius: var(--radius);
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background: var(--secondary);
-      color: #fff;
-      border-color: var(--secondary);
-    }
-
-    .btn-primary:hover {
-      background: #1d4ed8;
-      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
-      border-color: var(--border);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--secondary);
-      color: var(--secondary);
-    }
-
-    .btn-copy {
-      background: rgba(255, 255, 255, 0.08);
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.2);
-      margin-top: 1.25rem;
-    }
-
-    .btn-copy:hover {
-      background: rgba(255, 255, 255, 0.14);
-      border-color: var(--accent);
-    }
-
-    .btn-copy.copied {
-      border-color: var(--highlight);
-      color: var(--highlight);
-    }
-
-    /* About */
-    .about-block {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-
-    .about-block p {
-      color: var(--text-muted);
-      line-height: 1.8;
-    }
-
-    .about-block p + p {
-      margin-top: 1rem;
-    }
-
-    /* Grid cards */
-    .card-grid {
-      display: grid;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 2.5rem;
-    }
-
-    .card-grid.cols-3 {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .card-grid.cols-2 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .card {
-      background: var(--bg);
-      padding: 1.75rem;
-      transition: box-shadow 0.25s ease, transform 0.25s ease;
-    }
-
-    .card:hover {
-      box-shadow: var(--shadow-hover);
-      transform: translateY(-2px);
-      z-index: 1;
-      position: relative;
-    }
-
-    .card-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: var(--radius);
-      background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(20, 184, 166, 0.1));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--secondary);
-      font-family: "Sora", sans-serif;
-    }
-
-    .card h3 {
-      font-family: "Sora", "Inter", sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.6rem;
-      color: var(--primary);
-    }
-
-    .card p {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      line-height: 1.65;
-    }
-
-    /* How It Works */
-    .process-flow {
-      margin-top: 3rem;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      position: relative;
-    }
-
-    .process-line {
-      position: absolute;
-      top: 28px;
-      left: calc(16.67% + 20px);
-      right: calc(16.67% + 20px);
-      height: 2px;
-      background: var(--surface);
-      overflow: hidden;
-    }
-
-    .process-line::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, var(--secondary), var(--accent));
-      animation: flowLine 4s ease-in-out infinite;
-    }
-
-    @keyframes flowLine {
-      0% { left: -100%; }
-      50% { left: 0; }
-      100% { left: 100%; }
-    }
-
-    .process-step {
-      text-align: center;
-      padding: 0 1.5rem;
-      position: relative;
-    }
-
-    .process-number {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: var(--bg);
-      border: 2px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.25rem;
-      font-family: "Sora", sans-serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--secondary);
-      position: relative;
-      z-index: 2;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .process-step:hover .process-number {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.1);
-    }
-
-    .process-step h3 {
-      font-family: "Sora", "Inter", sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
-
-    .process-step p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      max-width: 260px;
-      margin: 0 auto;
-    }
-
-    /* Use Cases */
-    .use-case-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 2.5rem;
-    }
-
-    .use-case-item {
-      background: var(--bg);
-      padding: 1.5rem;
-      text-align: center;
-      transition: background 0.25s ease;
-    }
-
-    .use-case-item:hover {
-      background: #fff;
-    }
-
-    .use-case-item::before {
-      content: "";
-      display: block;
-      width: 24px;
-      height: 3px;
-      background: var(--highlight);
-      margin: 0 auto 1rem;
-      border-radius: 2px;
-    }
-
-    .use-case-item h3 {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--primary);
-      line-height: 1.4;
-    }
-
-    /* Why ZIVQEN */
-    .strength-list {
-      margin-top: 2.5rem;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-
-    .strength-item {
-      background: var(--bg);
-      padding: 1.5rem;
-      text-align: center;
-      transition: box-shadow 0.25s ease;
-    }
-
-    .strength-item:hover {
-      box-shadow: var(--shadow-hover);
-      z-index: 1;
-      position: relative;
-    }
-
-    .strength-item::before {
-      content: "";
-      display: block;
-      width: 32px;
-      height: 2px;
-      background: var(--accent);
-      margin: 0 auto 1rem;
-    }
-
-    .strength-item p {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--primary);
-      line-height: 1.4;
-    }
-
-    /* Insights */
-    .insight-grid {
-      margin-top: 2.5rem;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-
-    .insight-card {
-      background: var(--bg);
-      padding: 1.75rem;
-      transition: box-shadow 0.25s ease, transform 0.25s ease;
-    }
-
-    .insight-card:hover {
-      box-shadow: var(--shadow-hover);
-      transform: translateY(-2px);
-      z-index: 1;
-      position: relative;
-    }
-
-    .insight-card .tag {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.6rem;
-    }
-
-    .insight-card h3 {
-      font-family: "Sora", "Inter", sans-serif;
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.4;
-    }
-
-    /* Contact */
-    .contact-section {
-      background: var(--primary);
-      color: #fff;
-      border-bottom: none;
-    }
-
-    .contact-section .section-label {
-      color: var(--accent);
-    }
-
-    .contact-section .section-title {
-      color: #fff;
-    }
-
-    .contact-block {
-      margin-top: 1.5rem;
-      padding: 2rem;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      max-width: 640px;
-      border-radius: var(--radius);
-    }
-
-    .contact-block p {
-      color: #94A3B8;
-      font-size: 1.05rem;
-      line-height: 1.75;
-    }
-
-    .contact-block a {
-      color: #fff;
-      font-weight: 600;
-      border-bottom: 1px solid var(--accent);
-      transition: color 0.2s ease;
-    }
-
-    .contact-block a:hover {
-      color: var(--accent);
-    }
-
-    /* Footer */
-    footer {
-      background: var(--primary);
-      color: #94A3B8;
-      padding: 2.5rem 0;
-      font-size: 0.88rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .footer-brand {
-      font-family: "Sora", "Inter", sans-serif;
-      font-weight: 700;
-      color: #fff;
-      font-size: 0.95rem;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .footer-links a {
-      color: #94A3B8;
-      transition: color 0.2s ease;
-    }
-
-    .footer-links a:hover {
-      color: #fff;
-    }
-
-    .footer-email a {
-      color: #94A3B8;
-    }
-
-    .footer-email a:hover {
-      color: #fff;
-    }
-
-    .copyright {
-      color: #64748B;
-      font-size: 0.82rem;
-    }
-
-    @media (max-width: 960px) {
-      .card-grid.cols-3 {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .strength-list,
-      .use-case-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .process-flow {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .process-line {
-        display: none;
-      }
-
-      .about-block {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .insight-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .nav-links {
-        gap: 1rem;
-        font-size: 0.82rem;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-      }
-
-      .card-grid.cols-3,
-      .card-grid.cols-2 {
-        grid-template-columns: 1fr;
-      }
-
-      .strength-list,
-      .use-case-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem 0;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Inter:wght@400;500&family=Space+Grotesk:wght@500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
 </head>
-<body>
-  <header class="header" id="header">
-    <div class="container navbar">
-      <a href="#" class="brand" aria-label="ZIVQEN Home">ZIVQEN<span>.site</span></a>
-      <ul class="nav-links">
-        <li><a href="#" class="active" data-section="hero">Home</a></li>
-        <li><a href="#platform" data-section="platform">Platform</a></li>
-        <li><a href="#solutions" data-section="solutions">Solutions</a></li>
-        <li><a href="#automation" data-section="automation">Automation</a></li>
-        <li><a href="#insights" data-section="insights">Insights</a></li>
-        <li><a href="#contact" data-section="contact">Contact</a></li>
-      </ul>
+<body class="boot-active">
+
+  <a href="#grid" class="skip-link">Skip to signal grid</a>
+
+  <!-- Signal Orb Navigation -->
+  <nav class="signal-orb-nav" aria-label="System navigation">
+    <button
+      class="orb-trigger"
+      id="orbTrigger"
+      type="button"
+      aria-label="Open system menu"
+      aria-expanded="false"
+      aria-controls="radialMenu"
+    ></button>
+    <div class="radial-menu" id="radialMenu" role="menu">
+      <a href="#grid" role="menuitem">Grid</a>
+      <a href="#modules" role="menuitem">Modules</a>
+      <a href="#streams" role="menuitem">Streams</a>
+      <a href="#network" role="menuitem">Network</a>
+      <a href="#archive" role="menuitem">Archive</a>
+      <a href="#core" role="menuitem">Core</a>
     </div>
-  </header>
+  </nav>
+
+  <!-- Section 1: Signal Boot Sequence -->
+  <div class="boot-sequence" id="bootSequence" role="dialog" aria-label="System initialization" aria-modal="true">
+    <canvas class="boot-canvas" id="bootCanvas" aria-hidden="true"></canvas>
+    <div class="scan-line" aria-hidden="true"></div>
+    <div class="boot-content">
+      <p class="boot-status" aria-live="polite">
+        ZIVQEN SYSTEM INITIALIZING<span class="cursor-blink">_</span>
+      </p>
+      <div class="boot-logo" aria-label="ZIVQEN" role="img">
+        <span class="logo-fragment" aria-hidden="true"></span>
+        <span class="logo-fragment" aria-hidden="true"></span>
+        <span class="logo-fragment" aria-hidden="true"></span>
+        <span class="logo-fragment" aria-hidden="true"></span>
+        <span class="logo-fragment" aria-hidden="true"></span>
+        <span class="logo-fragment" aria-hidden="true"></span>
+        <span class="logo-fragment" aria-hidden="true"></span>
+      </div>
+      <div class="boot-progress" aria-hidden="true">
+        <div class="boot-progress-bar" id="bootProgress"></div>
+      </div>
+      <p class="boot-sync" id="bootSync">Establishing neural handshake...</p>
+    </div>
+  </div>
 
   <main>
-    <section class="hero" id="hero">
-      <div class="container reveal">
-        <h1>AI-Powered Systems for Automated Business Operations</h1>
-        <p>ZIVQEN designs intelligent automation systems, AI workflows, and scalable digital infrastructure that help businesses operate faster and smarter.</p>
-        <div class="cta-group">
-          <a class="btn btn-primary" href="#platform">Explore Platform</a>
-          <a class="btn btn-secondary" href="#solutions">View Solutions</a>
-        </div>
-      </div>
-    </section>
 
-    <section id="about" class="section">
-      <div class="container reveal">
-        <p class="section-label">About</p>
-        <h2 class="section-title">Intelligent Systems for Automated Digital Operations</h2>
-        <div class="about-block">
-          <p>ZIVQEN is a technology company specializing in AI systems, automation workflows, and digital intelligence solutions.</p>
-          <p>We help organizations reduce manual processes and improve operational efficiency through intelligent system design.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="platform" class="section">
-      <div class="container reveal">
-        <p class="section-label">Platform</p>
-        <h2 class="section-title">Core Automation Infrastructure</h2>
-        <p class="section-copy">A unified platform for building, deploying, and scaling intelligent automation systems across your organization.</p>
-
-        <div class="card-grid cols-3">
-          <article class="card">
-            <div class="card-icon">01</div>
-            <h3>AI Workflow Automation</h3>
-            <p>Design and deploy AI-driven workflows that automate complex business processes with intelligent decision routing and adaptive logic.</p>
-          </article>
-          <article class="card">
-            <div class="card-icon">02</div>
-            <h3>Smart Task Processing</h3>
-            <p>Automated task pipelines that classify, prioritize, and execute operations with minimal human intervention and maximum throughput.</p>
-          </article>
-          <article class="card">
-            <div class="card-icon">03</div>
-            <h3>Data-driven Decision Systems</h3>
-            <p>Real-time analytics engines that transform operational data into actionable intelligence for faster, more accurate business decisions.</p>
-          </article>
-          <article class="card">
-            <div class="card-icon">04</div>
-            <h3>API Integration Engine</h3>
-            <p>Connect disparate systems through a unified integration layer with standardized APIs, event triggers, and automated data synchronization.</p>
-          </article>
-          <article class="card">
-            <div class="card-icon">05</div>
-            <h3>Scalable Automation Architecture</h3>
-            <p>Cloud-native infrastructure designed to scale automation workloads reliably while maintaining performance and security standards.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="solutions" class="section">
-      <div class="container reveal">
-        <p class="section-label">Solutions</p>
-        <h2 class="section-title">Business-Focused Automation Systems</h2>
-        <p class="section-copy">Outcome-driven solutions engineered to solve specific operational challenges and deliver measurable efficiency gains.</p>
-
-        <div class="card-grid cols-2">
-          <article class="card">
-            <h3>Enterprise Automation Systems</h3>
-            <p>End-to-end automation platforms that unify cross-departmental workflows, reduce operational bottlenecks, and standardize business processes at scale.</p>
-          </article>
-          <article class="card">
-            <h3>AI Workflow Optimization</h3>
-            <p>Intelligent workflow redesign that leverages AI to eliminate redundancies, accelerate processing cycles, and improve output quality.</p>
-          </article>
-          <article class="card">
-            <h3>Digital Process Engineering</h3>
-            <p>Systematic transformation of manual and legacy processes into efficient, automated digital workflows with full audit and compliance support.</p>
-          </article>
-          <article class="card">
-            <h3>Smart Data Integration</h3>
-            <p>Unified data pipelines that connect platforms, validate information integrity, and enable real-time reporting across the organization.</p>
-          </article>
-          <article class="card">
-            <h3>Custom AI Tool Development</h3>
-            <p>Purpose-built AI tools tailored to specific business functions — from document processing to predictive analytics and intelligent routing.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="automation" class="section">
-      <div class="container reveal">
-        <p class="section-label">Automation</p>
-        <h2 class="section-title">How It Works</h2>
-        <p class="section-copy">A structured approach to designing and deploying intelligent automation systems for real business outcomes.</p>
-
-        <div class="process-flow">
-          <div class="process-line" aria-hidden="true"></div>
-          <div class="process-step">
-            <div class="process-number">1</div>
-            <h3>Analyze Business Process</h3>
-            <p>Map existing workflows, identify automation opportunities, and define performance benchmarks.</p>
+    <!-- Section 2: Neural Signal Grid -->
+    <section class="system-layer" id="grid" aria-labelledby="grid-title">
+      <div class="scan-overlay" aria-hidden="true"></div>
+      <div class="signal-grid-wrap">
+        <p class="layer-id">Layer 02 // Neural Signal Grid</p>
+        <h2 class="layer-title" id="grid-title">Live Data Flow Matrix</h2>
+        <div class="signal-grid" role="list">
+          <div class="signal-node" role="listitem" tabindex="0">
+            <span class="node-id">SIG.0xA1</span>
+            <span class="node-state">Processing</span>
+            <p class="node-data">Route buffer: 2048kb · AI path: /core/infer</p>
           </div>
-          <div class="process-step">
-            <div class="process-number">2</div>
-            <h3>Design Automation System</h3>
-            <p>Architect intelligent workflows with AI decision layers, integration points, and scalability requirements.</p>
+          <div class="signal-node" role="listitem" tabindex="0">
+            <span class="node-id">SIG.0xA2</span>
+            <span class="node-state">Routing</span>
+            <p class="node-data">Relay hop: NODE-7 → NODE-12 · latency 4ms</p>
           </div>
-          <div class="process-step">
-            <div class="process-number">3</div>
-            <h3>Deploy Intelligent Workflow</h3>
-            <p>Launch production-ready automation with monitoring, optimization, and continuous improvement protocols.</p>
+          <div class="signal-node" role="listitem" tabindex="0">
+            <span class="node-id">SIG.0xA3</span>
+            <span class="node-state">Synthesizing</span>
+            <p class="node-data">Pattern merge: 3 streams · coherence 98.2%</p>
+          </div>
+          <div class="signal-node" role="listitem" tabindex="0">
+            <span class="node-id">SIG.0xB1</span>
+            <span class="node-state">Active</span>
+            <p class="node-data">Fragment: {type: neural, weight: 0.847}</p>
+          </div>
+          <div class="signal-node" role="listitem" tabindex="0">
+            <span class="node-id">SIG.0xB2</span>
+            <span class="node-state">Queued</span>
+            <p class="node-data">Awaiting sync pulse · priority: HIGH</p>
+          </div>
+          <div class="signal-node" role="listitem" tabindex="0">
+            <span class="node-id">SIG.0xB3</span>
+            <span class="node-state">Processing</span>
+            <p class="node-data">Tensor op: conv2d · batch: 128</p>
+          </div>
+          <div class="signal-node" role="listitem" tabindex="0">
+            <span class="node-id">SIG.0xC1</span>
+            <span class="node-state">Transmitting</span>
+            <p class="node-data">Output channel: /relay/out · 1.2Gbps</p>
+          </div>
+          <div class="signal-node" role="listitem" tabindex="0">
+            <span class="node-id">SIG.0xC2</span>
+            <span class="node-state">Analyzing</span>
+            <p class="node-data">Anomaly scan: NEGATIVE · confidence 99.1%</p>
+          </div>
+          <div class="signal-node" role="listitem" tabindex="0">
+            <span class="node-id">SIG.0xC3</span>
+            <span class="node-state">Stable</span>
+            <p class="node-data">Heartbeat: 60Hz · drift: 0.003%</p>
+          </div>
+          <div class="signal-node" role="listitem" tabindex="0">
+            <span class="node-id">SIG.0xD1</span>
+            <span class="node-state">Routing</span>
+            <p class="node-data">AI module: PREDICT-04 · state: ONLINE</p>
+          </div>
+          <div class="signal-node" role="listitem" tabindex="0">
+            <span class="node-id">SIG.0xD2</span>
+            <span class="node-state">Processing</span>
+            <p class="node-data">Data fragment: 0xFF3A · checksum OK</p>
+          </div>
+          <div class="signal-node" role="listitem" tabindex="0">
+            <span class="node-id">SIG.0xD3</span>
+            <span class="node-state">Active</span>
+            <p class="node-data">System ID: ZQ-NODE-441 · zone: ALPHA</p>
+          </div>
+          <div class="signal-node" role="listitem" tabindex="0">
+            <span class="node-id">SIG.0xE1</span>
+            <span class="node-state">Synthesizing</span>
+            <p class="node-data">Waveform merge · freq: 440Hz</p>
+          </div>
+          <div class="signal-node" role="listitem" tabindex="0">
+            <span class="node-id">SIG.0xE2</span>
+            <span class="node-state">Transmitting</span>
+            <p class="node-data">Packet stream: 847/s · encrypted</p>
+          </div>
+          <div class="signal-node" role="listitem" tabindex="0">
+            <span class="node-id">SIG.0xE3</span>
+            <span class="node-state">Queued</span>
+            <p class="node-data">Buffer index: 1024 · next: 2.4ms</p>
+          </div>
+          <div class="signal-node" role="listitem" tabindex="0">
+            <span class="node-id">SIG.0xF1</span>
+            <span class="node-state">Analyzing</span>
+            <p class="node-data">Pattern match: 94.7% · model v3.2</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="use-cases" class="section">
-      <div class="container reveal">
-        <p class="section-label">Use Cases</p>
-        <h2 class="section-title">Industry Applications</h2>
-        <p class="section-copy">Intelligent automation systems deployed across industries to streamline operations and enhance decision-making.</p>
-
-        <div class="use-case-grid">
-          <div class="use-case-item"><h3>E-commerce Automation</h3></div>
-          <div class="use-case-item"><h3>Finance Operations Systems</h3></div>
-          <div class="use-case-item"><h3>Customer Support AI</h3></div>
-          <div class="use-case-item"><h3>HR Workflow Automation</h3></div>
-          <div class="use-case-item"><h3>Data Processing Systems</h3></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="insights" class="section">
-      <div class="container reveal">
-        <p class="section-label">Insights</p>
-        <h2 class="section-title">Technical Knowledge Hub</h2>
-        <p class="section-copy">Engineering perspectives on AI system design, automation strategy, and digital transformation.</p>
-
-        <div class="insight-grid">
-          <article class="insight-card">
-            <p class="tag">System Design</p>
-            <h3>AI System Design Principles for Enterprise Automation</h3>
-          </article>
-          <article class="insight-card">
-            <p class="tag">Automation</p>
-            <h3>Automation Strategies for Operational Efficiency</h3>
-          </article>
-          <article class="insight-card">
-            <p class="tag">Optimization</p>
-            <h3>Workflow Optimization Techniques for Scalable Systems</h3>
-          </article>
-          <article class="insight-card">
-            <p class="tag">Transformation</p>
-            <h3>Digital Transformation Frameworks for Modern Organizations</h3>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="why" class="section">
-      <div class="container reveal">
-        <p class="section-label">Why ZIVQEN</p>
-        <h2 class="section-title">Engineering Advantages</h2>
-        <p class="section-copy">A disciplined approach to building automation systems that deliver lasting operational value.</p>
-
-        <div class="strength-list">
-          <div class="strength-item"><p>AI-native architecture</p></div>
-          <div class="strength-item"><p>Scalable automation systems</p></div>
-          <div class="strength-item"><p>Secure engineering standards</p></div>
-          <div class="strength-item"><p>Business-first implementation</p></div>
-          <div class="strength-item"><p>Performance-focused design</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section contact-section">
-      <div class="container reveal">
-        <p class="section-label">Contact</p>
-        <h2 class="section-title">Get in Touch</h2>
-        <div class="contact-block">
-          <p>For partnerships, enterprise inquiries, or automation system development, contact us directly at <a href="mailto:contact@zivqen.site">contact@zivqen.site</a></p>
-          <button class="btn btn-copy" id="copyEmailBtn" type="button" aria-label="Copy email address">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            <span id="copyEmailText">Copy Email</span>
+    <!-- Section 3: Intelligence Module Stack -->
+    <section class="system-layer" id="modules" aria-labelledby="modules-title">
+      <div class="scan-overlay" aria-hidden="true"></div>
+      <p class="layer-id">Layer 03 // Intelligence Module Stack</p>
+      <h2 class="layer-title" id="modules-title">System Layer Architecture</h2>
+      <div class="module-stack">
+        <article class="module-layer">
+          <button class="module-header" type="button" aria-expanded="false">
+            <span class="module-index">MOD.L1</span>
+            <h3>CORE PROCESSING UNIT</h3>
+            <span class="module-indicator" aria-hidden="true"></span>
           </button>
+          <div class="module-body">
+            <div class="module-content">
+              Primary computational nucleus. Executes parallel tensor operations, manages inference cycles, and coordinates sub-module dispatch across the relay network.
+              <div class="module-metrics">
+                <span>CPU LOAD: 34%</span>
+                <span>THREADS: 128</span>
+                <span>STATE: NOMINAL</span>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="module-layer">
+          <button class="module-header" type="button" aria-expanded="false">
+            <span class="module-index">MOD.L2</span>
+            <h3>SIGNAL SYNTHESIS LAYER</h3>
+            <span class="module-indicator" aria-hidden="true"></span>
+          </button>
+          <div class="module-body">
+            <div class="module-content">
+              Merges heterogeneous data streams into unified signal patterns. Applies frequency analysis, noise filtering, and coherence validation before downstream routing.
+              <div class="module-metrics">
+                <span>STREAMS: 24</span>
+                <span>COHERENCE: 97.8%</span>
+                <span>LATENCY: 6ms</span>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="module-layer">
+          <button class="module-header" type="button" aria-expanded="false">
+            <span class="module-index">MOD.L3</span>
+            <h3>PREDICTIVE MODEL ENGINE</h3>
+            <span class="module-indicator" aria-hidden="true"></span>
+          </button>
+          <div class="module-body">
+            <div class="module-content">
+              Autonomous forecasting subsystem. Runs continuous model inference on incoming signals, generating probabilistic outputs and state predictions for the response layer.
+              <div class="module-metrics">
+                <span>MODELS: 7</span>
+                <span>ACCURACY: 96.4%</span>
+                <span>CYCLE: 12ms</span>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="module-layer">
+          <button class="module-header" type="button" aria-expanded="false">
+            <span class="module-index">MOD.L4</span>
+            <h3>DATA STREAM CONTROLLER</h3>
+            <span class="module-indicator" aria-hidden="true"></span>
+          </button>
+          <div class="module-body">
+            <div class="module-content">
+              Governs packet flow across the relay corridor. Manages buffer allocation, priority queuing, encryption handshakes, and throughput optimization.
+              <div class="module-metrics">
+                <span>THROUGHPUT: 1.4Gbps</span>
+                <span>BUFFERS: 512</span>
+                <span>DROP: 0.00%</span>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="module-layer">
+          <button class="module-header" type="button" aria-expanded="false">
+            <span class="module-index">MOD.L5</span>
+            <h3>AUTONOMOUS RESPONSE LAYER</h3>
+            <span class="module-indicator" aria-hidden="true"></span>
+          </button>
+          <div class="module-body">
+            <div class="module-content">
+              Final execution layer. Translates intelligence outputs into system actions — relay activations, signal reroutes, and adaptive parameter adjustments without manual intervention.
+              <div class="module-metrics">
+                <span>ACTIONS: 847/hr</span>
+                <span>OVERRIDE: NONE</span>
+                <span>MODE: AUTO</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Section 4: Data Stream Corridor -->
+    <section class="system-layer" id="streams" aria-labelledby="streams-title">
+      <div class="scan-overlay" aria-hidden="true"></div>
+      <p class="layer-id">Layer 04 // Data Stream Corridor</p>
+      <h2 class="layer-title" id="streams-title">Continuous Signal Flow</h2>
+      <div class="stream-corridor" aria-label="Live data packet stream">
+        <div class="stream-track" id="streamTrack">
+          <div class="data-packet">
+            <p class="pkt-type">LOG</p>
+            <p class="pkt-content">Relay handshake confirmed · channel ZQ-ALPHA-01</p>
+            <p class="pkt-ts">2026-06-10T14:22:01.447Z</p>
+          </div>
+          <div class="data-packet">
+            <p class="pkt-type">SIGNAL</p>
+            <p class="pkt-content">Neural pulse detected · amplitude 0.847 · freq 440Hz</p>
+            <p class="pkt-ts">2026-06-10T14:22:01.892Z</p>
+          </div>
+          <div class="data-packet">
+            <p class="pkt-type">OUTPUT</p>
+            <p class="pkt-content">Prediction vector generated · confidence 96.4%</p>
+            <p class="pkt-ts">2026-06-10T14:22:02.103Z</p>
+          </div>
+          <div class="data-packet">
+            <p class="pkt-type">ANALYSIS</p>
+            <p class="pkt-content">Pattern cluster identified · nodes: 12 · edges: 34</p>
+            <p class="pkt-ts">2026-06-10T14:22:02.556Z</p>
+          </div>
+          <div class="data-packet">
+            <p class="pkt-type">LOG</p>
+            <p class="pkt-content">Buffer flush complete · 2048 packets processed</p>
+            <p class="pkt-ts">2026-06-10T14:22:03.001Z</p>
+          </div>
+          <div class="data-packet">
+            <p class="pkt-type">SIGNAL</p>
+            <p class="pkt-content">Coherence check passed · drift 0.003% · stable</p>
+            <p class="pkt-ts">2026-06-10T14:22:03.289Z</p>
+          </div>
+          <div class="data-packet">
+            <p class="pkt-type">OUTPUT</p>
+            <p class="pkt-content">Autonomous action dispatched · relay NODE-7</p>
+            <p class="pkt-ts">2026-06-10T14:22:03.774Z</p>
+          </div>
+          <div class="data-packet">
+            <p class="pkt-type">ANALYSIS</p>
+            <p class="pkt-content">Tensor operation complete · conv2d · 12ms</p>
+            <p class="pkt-ts">2026-06-10T14:22:04.112Z</p>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- Section 5: Network Topology Map -->
+    <section class="system-layer" id="network" aria-labelledby="network-title">
+      <div class="scan-overlay" aria-hidden="true"></div>
+      <div class="topology-wrap">
+        <p class="layer-id">Layer 05 // Network Topology Map</p>
+        <h2 class="layer-title" id="network-title">Intelligence Node Network</h2>
+        <canvas class="topology-canvas" id="topologyCanvas" role="img" aria-label="Interactive network topology map showing connected intelligence nodes across processing, routing, analysis, storage, and prediction zones"></canvas>
+        <div class="topology-zones" role="list" aria-label="Network zones">
+          <span class="zone-tag" role="listitem" data-zone="processing" tabindex="0">Processing</span>
+          <span class="zone-tag" role="listitem" data-zone="routing" tabindex="0">Routing</span>
+          <span class="zone-tag" role="listitem" data-zone="analysis" tabindex="0">Analysis</span>
+          <span class="zone-tag" role="listitem" data-zone="storage" tabindex="0">Storage</span>
+          <span class="zone-tag" role="listitem" data-zone="prediction" tabindex="0">Prediction</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Signal Archive Vault -->
+    <section class="system-layer" id="archive" aria-labelledby="archive-title">
+      <div class="scan-overlay" aria-hidden="true"></div>
+      <p class="layer-id">Layer 06 // Signal Archive Vault</p>
+      <h2 class="layer-title" id="archive-title">Historical System Data</h2>
+      <div class="vault">
+        <div class="vault-header">
+          <span class="vault-dot cyan" aria-hidden="true"></span>
+          <span class="vault-dot violet" aria-hidden="true"></span>
+          <span>zivqen-vault — secure.archive.index</span>
+        </div>
+        <div class="vault-entries" role="log" aria-label="Archived system events">
+          <div class="vault-entry">
+            <span class="entry-ts">2026-06-10 14:18:22</span>
+            <span class="entry-type">Event</span>
+            <span class="entry-msg">System boot sequence initiated · all modules nominal</span>
+          </div>
+          <div class="vault-entry">
+            <span class="entry-ts">2026-06-10 14:18:45</span>
+            <span class="entry-type">Signal</span>
+            <span class="entry-msg">Neural grid synchronized · 16 nodes active · coherence 98.2%</span>
+          </div>
+          <div class="vault-entry">
+            <span class="entry-ts">2026-06-10 14:19:01</span>
+            <span class="entry-type">AI Decision</span>
+            <span class="entry-msg">Predictive model v3.2 deployed · accuracy threshold met</span>
+          </div>
+          <div class="vault-entry">
+            <span class="entry-ts">2026-06-10 14:19:33</span>
+            <span class="entry-type">Log</span>
+            <span class="entry-msg">Data stream corridor online · throughput 1.4Gbps</span>
+          </div>
+          <div class="vault-entry">
+            <span class="entry-ts">2026-06-10 14:20:07</span>
+            <span class="entry-type">Event</span>
+            <span class="entry-msg">Network topology mapped · 12 nodes · 34 connections</span>
+          </div>
+          <div class="vault-entry">
+            <span class="entry-ts">2026-06-10 14:20:44</span>
+            <span class="entry-type">Signal</span>
+            <span class="entry-msg">Relay pulse transmitted · NODE-7 → NODE-12 · 4ms</span>
+          </div>
+          <div class="vault-entry">
+            <span class="entry-ts">2026-06-10 14:21:12</span>
+            <span class="entry-type">AI Decision</span>
+            <span class="entry-msg">Anomaly scan negative · all channels within parameters</span>
+          </div>
+          <div class="vault-entry">
+            <span class="entry-ts">2026-06-10 14:21:55</span>
+            <span class="entry-type">Log</span>
+            <span class="entry-msg">Archive vault sealed · encryption: AES-256-GCM</span>
+          </div>
+          <div class="vault-entry">
+            <span class="entry-ts">2026-06-10 14:22:30</span>
+            <span class="entry-type">Event</span>
+            <span class="entry-msg">Synthetic field visualizer calibrated · scroll-reactive</span>
+          </div>
+          <div class="vault-entry">
+            <span class="entry-ts">2026-06-10 14:23:01</span>
+            <span class="entry-type">Signal</span>
+            <span class="entry-msg">All systems synchronized · relay network operational</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Synthetic Field Visualizer -->
+    <section class="system-layer field-layer" id="field" aria-label="Synthetic field visualizer">
+      <canvas class="field-canvas" id="fieldCanvas" aria-hidden="true"></canvas>
+      <p class="field-label">SYNTHETIC FIELD VISUALIZER — SCROLL TO MODULATE</p>
+    </section>
+
+    <!-- Section 8: Operational Status Panel -->
+    <section class="system-layer" id="status" aria-labelledby="status-title">
+      <div class="scan-overlay" aria-hidden="true"></div>
+      <p class="layer-id">Layer 08 // Operational Status Panel</p>
+      <h2 class="layer-title" id="status-title">System Diagnostics</h2>
+      <div class="status-panel" role="status" aria-live="polite">
+        <div class="status-row">
+          <span class="status-label">System Uptime</span>
+          <span class="status-value stable" id="statusUptime">ACTIVE</span>
+        </div>
+        <div class="status-row">
+          <span class="status-label">Signal Integrity</span>
+          <span class="status-value stable">STABLE</span>
+        </div>
+        <div class="status-row">
+          <span class="status-label">Process Load</span>
+          <span class="status-value optimal">OPTIMAL</span>
+        </div>
+        <div class="status-row">
+          <span class="status-label">AI Coherence</span>
+          <span class="status-value high">HIGH</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: Final Signal Core -->
+    <section class="system-layer core-layer" id="core" aria-labelledby="core-title">
+      <div class="scan-overlay" aria-hidden="true"></div>
+      <p class="layer-id">Layer 09 // Final Signal Core</p>
+      <div class="signal-core-wrap" aria-hidden="true">
+        <div class="core-ring"></div>
+        <div class="core-ring"></div>
+        <div class="core-ring"></div>
+        <div class="signal-core"></div>
+      </div>
+      <h2 class="core-title" id="core-title">ALL SYSTEMS SYNCHRONIZED</h2>
+      <button class="relay-btn" id="relayBtn" type="button">ACTIVATE RELAY</button>
+    </section>
+
+    <!-- Contact Endpoint -->
+    <section class="system-layer contact-layer" id="contact" aria-labelledby="contact-title">
+      <p class="layer-id">Endpoint // Classified Channel</p>
+      <h2 class="layer-title" id="contact-title">System Contact Relay</h2>
+      <div class="contact-endpoint">
+        <p class="contact-label">Classified System Endpoint</p>
+        <a class="contact-email" href="mailto:contact@zivqen.site">contact@zivqen.site</a>
+        <p class="contact-classified">SECURE CHANNEL · ENCRYPTED TRANSMISSION ONLY</p>
+      </div>
+    </section>
+
   </main>
 
-  <footer>
-    <div class="container footer-inner">
-      <span class="footer-brand">ZIVQEN</span>
-      <div class="footer-links">
-        <span class="footer-email"><a href="mailto:contact@zivqen.site">contact@zivqen.site</a></span>
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-      </div>
-      <span class="copyright">&copy; 2026 ZIVQEN. All rights reserved.</span>
-    </div>
-  </footer>
-
-  <script>
-    const header = document.getElementById("header");
-    const navLinks = document.querySelectorAll(".nav-links a[data-section]");
-    const sections = document.querySelectorAll("section[id]");
-    const reveals = document.querySelectorAll(".reveal");
-
-    window.addEventListener("scroll", () => {
-      header.classList.toggle("scrolled", window.scrollY > 20);
-
-      let current = "";
-      sections.forEach((section) => {
-        const top = section.offsetTop - 120;
-        if (window.scrollY >= top) {
-          current = section.id;
-        }
-      });
-
-      navLinks.forEach((link) => {
-        link.classList.toggle("active", link.dataset.section === current || (current === "" && link.dataset.section === "hero"));
-      });
-    });
-
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
-    );
-
-    reveals.forEach((el) => revealObserver.observe(el));
-
-    const copyBtn = document.getElementById("copyEmailBtn");
-    const copyText = document.getElementById("copyEmailText");
-    const email = "contact@zivqen.site";
-
-    copyBtn.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(email);
-        copyBtn.classList.add("copied");
-        copyText.textContent = "Copied!";
-        setTimeout(() => {
-          copyBtn.classList.remove("copied");
-          copyText.textContent = "Copy Email";
-        }, 2000);
-      } catch {
-        const input = document.createElement("input");
-        input.value = email;
-        document.body.appendChild(input);
-        input.select();
-        document.execCommand("copy");
-        document.body.removeChild(input);
-        copyText.textContent = "Copied!";
-        setTimeout(() => { copyText.textContent = "Copy Email"; }, 2000);
-      }
-    });
-  </script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
