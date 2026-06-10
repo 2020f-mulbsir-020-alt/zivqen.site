@@ -3,29 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zivqen | The AI Operating System for Modern Teams</title>
-  <meta name="description" content="Zivqen is the AI operating system for modern teams. Automate workflows, optimize productivity, and scale operations with intelligent SaaS automation." />
+  <title>AVNIX | Engineering Reliable Digital Systems for Modern Businesses</title>
+  <meta name="description" content="AVNIX designs and engineers reliable software systems, automation solutions, and modern digital infrastructure for businesses worldwide." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0f172a;
-      --bg-2: #111c3f;
-      --surface: rgba(255, 255, 255, 0.06);
-      --surface-strong: rgba(255, 255, 255, 0.11);
-      --text: #ffffff;
-      --muted: #94a3b8;
-      --violet: #7c3aed;
-      --cyan: #22d3ee;
-      --line: rgba(255, 255, 255, 0.18);
-      --shadow: 0 20px 50px rgba(2, 6, 23, 0.45);
-      --glow-violet: 0 0 34px rgba(124, 58, 237, 0.45);
-      --glow-cyan: 0 0 30px rgba(34, 211, 238, 0.34);
-      --radius: 18px;
-      --radius-sm: 12px;
-      --container: 1200px;
-      --grid-line: rgba(255, 255, 255, 0.05);
+      --primary: #0B1220;
+      --secondary: #1E40AF;
+      --accent: #14B8A6;
+      --bg: #F8FAFC;
+      --text: #0F172A;
+      --text-muted: #475569;
+      --border: #E2E8F0;
+      --container: 1140px;
+      --radius: 6px;
     }
 
     * {
@@ -41,27 +34,10 @@
     body {
       font-family: "Inter", sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(1200px 650px at 10% -10%, rgba(124, 58, 237, 0.34), transparent 58%),
-        radial-gradient(900px 520px at 95% 6%, rgba(34, 211, 238, 0.25), transparent 60%),
-        linear-gradient(150deg, var(--bg), var(--bg-2));
-      line-height: 1.65;
-      min-height: 100vh;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(var(--grid-line) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-      background-size: 42px 42px;
-      pointer-events: none;
-      z-index: -1;
-      mask-image: radial-gradient(circle at center, black 45%, transparent 92%);
+      background: var(--bg);
+      line-height: 1.7;
+      font-size: 1rem;
+      -webkit-font-smoothing: antialiased;
     }
 
     a {
@@ -69,1391 +45,696 @@
       text-decoration: none;
     }
 
-    img,
-    svg {
-      display: block;
-      max-width: 100%;
-    }
-
     .container {
-      width: min(100% - 2.2rem, var(--container));
+      width: min(100% - 2.5rem, var(--container));
       margin-inline: auto;
     }
 
     .section {
-      padding: 5.7rem 0;
-      position: relative;
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 0.75rem;
     }
 
     .section-title {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: clamp(1.75rem, 1.2rem + 2vw, 2.7rem);
-      line-height: 1.16;
-      margin-bottom: 1rem;
+      font-family: "Sora", "Inter", sans-serif;
+      font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+      font-weight: 700;
+      line-height: 1.25;
       letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      color: var(--text);
     }
 
     .section-copy {
-      color: var(--muted);
-      font-size: clamp(0.98rem, 0.9rem + 0.34vw, 1.08rem);
-      max-width: 680px;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 640px;
+      line-height: 1.75;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: #dbeafe;
-      font-size: 0.84rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 0.9rem;
-      background: rgba(15, 23, 42, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 100px;
-      padding: 0.34rem 0.8rem;
-      backdrop-filter: blur(10px);
-      width: fit-content;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: linear-gradient(180deg, var(--cyan), var(--violet));
-      box-shadow: var(--glow-cyan);
-    }
-
-    .glass {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-    }
-
-    .nav-wrap {
+    /* Header */
+    .header {
       position: sticky;
       top: 0;
-      z-index: 30;
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      background: linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.68));
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
     }
 
     .navbar {
-      min-height: 74px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
+      min-height: 68px;
+      gap: 1.5rem;
     }
 
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 1.15rem;
+      font-family: "Sora", "Inter", sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
       letter-spacing: -0.02em;
+      color: var(--primary);
     }
 
-    .brand-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 10px;
-      background: conic-gradient(from 0deg, var(--violet), var(--cyan), #2dd4bf, var(--violet));
-      box-shadow: var(--glow-violet);
-      position: relative;
-      animation: spin 9s linear infinite;
-    }
-
-    .brand-mark::after {
-      content: "";
-      position: absolute;
-      inset: 3px;
-      border-radius: 8px;
-      background: rgba(15, 23, 42, 0.88);
+    .brand span {
+      color: var(--secondary);
     }
 
     .nav-links {
       display: flex;
-      gap: 1.1rem;
+      gap: 2rem;
       list-style: none;
-      color: #e2e8f0;
-      font-size: 0.94rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav-links a {
-      opacity: 0.88;
-      transition: opacity 0.25s ease, color 0.25s ease;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
     }
 
     .nav-links a:hover {
-      color: #fff;
-      opacity: 1;
+      color: var(--text);
     }
 
+    /* Hero */
     .hero {
-      padding-top: 4.9rem;
-      padding-bottom: 5.2rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: center;
+      padding: 5.5rem 0 5rem;
+      border-bottom: 1px solid var(--border);
     }
 
     .hero h1 {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: clamp(2.1rem, 1.5rem + 2.6vw, 4rem);
-      line-height: 1.06;
-      margin-bottom: 1rem;
+      font-family: "Sora", "Inter", sans-serif;
+      font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
       letter-spacing: -0.03em;
-      text-wrap: balance;
+      color: var(--primary);
+      max-width: 720px;
+      margin-bottom: 1.25rem;
     }
 
     .hero p {
-      color: #cbd5e1;
-      font-size: clamp(1rem, 0.92rem + 0.32vw, 1.1rem);
+      color: var(--text-muted);
+      font-size: 1.1rem;
       max-width: 600px;
-      margin-bottom: 1.6rem;
+      margin-bottom: 2rem;
+      line-height: 1.75;
     }
 
     .cta-group {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-bottom: 1.2rem;
+      gap: 0.75rem;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
-      min-width: 170px;
-      border-radius: 12px;
-      border: 1px solid transparent;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9rem;
       font-weight: 600;
-      font-size: 0.96rem;
-      padding: 0.86rem 1.2rem;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      transition: background 0.15s ease, border-color 0.15s ease;
     }
 
     .btn-primary {
-      background: linear-gradient(120deg, var(--violet), #5b21b6 44%, var(--cyan));
-      box-shadow: 0 15px 28px rgba(124, 58, 237, 0.35);
+      background: var(--secondary);
       color: #fff;
+      border-color: var(--secondary);
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
     }
 
     .btn-secondary {
-      border-color: rgba(255, 255, 255, 0.24);
-      background: rgba(255, 255, 255, 0.02);
-      color: #f8fafc;
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.55), var(--glow-cyan);
+    .btn-secondary:hover {
+      border-color: var(--text-muted);
     }
 
-    .hero-points {
-      display: flex;
-      gap: 1.4rem;
-      flex-wrap: wrap;
-      color: #dbeafe;
-      font-size: 0.9rem;
+    /* Company */
+    .company-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
     }
 
-    .hero-points span {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
+    .company-block p {
+      color: var(--text-muted);
+      line-height: 1.8;
     }
 
-    .hero-points span::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--cyan);
-      box-shadow: var(--glow-cyan);
+    .company-block p + p {
+      margin-top: 1rem;
     }
 
-    .hero-panel {
-      padding: 1.1rem;
-      position: relative;
-      isolation: isolate;
+    /* Grid cards */
+    .card-grid {
+      display: grid;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 2.5rem;
     }
 
-    .dashboard {
-      min-height: 480px;
-      border-radius: 16px;
-      padding: 1rem;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      background:
-        linear-gradient(160deg, rgba(124, 58, 237, 0.16), rgba(34, 211, 238, 0.08) 42%, rgba(15, 23, 42, 0.72)),
-        rgba(15, 23, 42, 0.7);
-      position: relative;
-      overflow: hidden;
+    .card-grid.cols-3 {
+      grid-template-columns: repeat(3, 1fr);
     }
 
-    .dashboard::before {
-      content: "";
-      position: absolute;
-      inset: -35% -20% auto;
-      height: 58%;
-      background: radial-gradient(circle, rgba(34, 211, 238, 0.34) 0%, rgba(34, 211, 238, 0) 66%);
-      animation: drift 12s ease-in-out infinite;
+    .card-grid.cols-2 {
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    .topbar {
+    .card {
+      background: var(--bg);
+      padding: 1.75rem;
+    }
+
+    .card h3 {
+      font-family: "Sora", "Inter", sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: var(--primary);
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    /* Case studies */
+    .case-study {
+      border: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    .case-study + .case-study {
+      margin-top: 1px;
+    }
+
+    .case-header {
+      padding: 1.5rem 1.75rem;
+      border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.9rem;
-      position: relative;
-      z-index: 2;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
-    .dots {
-      display: flex;
-      gap: 0.4rem;
-    }
-
-    .dots span {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.65);
-    }
-
-    .topbar strong {
-      font-size: 0.8rem;
+    .case-header h3 {
+      font-family: "Sora", "Inter", sans-serif;
+      font-size: 1.05rem;
       font-weight: 600;
-      color: #dbeafe;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      color: var(--primary);
     }
 
-    .dash-grid {
+    .case-header span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .case-body {
       display: grid;
-      gap: 0.8rem;
-      grid-template-columns: 1fr 1fr;
-      position: relative;
-      z-index: 2;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
     }
 
-    .dash-card {
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      padding: 0.9rem;
-      background: rgba(15, 23, 42, 0.62);
-      min-height: 122px;
+    .case-col {
+      background: var(--bg);
+      padding: 1.5rem 1.75rem;
     }
 
-    .dash-card h4 {
-      font-size: 0.8rem;
-      color: #cbd5e1;
+    .case-col h4 {
+      font-size: 0.7rem;
       font-weight: 600;
-      margin-bottom: 0.55rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
     }
 
-    .dash-value {
-      font-size: 1.35rem;
-      font-weight: 700;
-      margin-bottom: 0.35rem;
+    .case-col p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
     }
 
-    .bars {
-      display: flex;
-      align-items: flex-end;
-      gap: 0.36rem;
-      height: 56px;
-      margin-top: 0.55rem;
+    /* Why AVNIX */
+    .strength-list {
+      margin-top: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
     }
 
-    .bars span {
-      flex: 1;
-      border-radius: 999px;
-      background: linear-gradient(180deg, var(--cyan), rgba(34, 211, 238, 0.25));
-      animation: pulseBars 3.1s ease-in-out infinite;
+    .strength-item {
+      background: var(--bg);
+      padding: 1.5rem;
+      text-align: center;
     }
 
-    .bars span:nth-child(2) { animation-delay: 0.2s; }
-    .bars span:nth-child(3) { animation-delay: 0.4s; }
-    .bars span:nth-child(4) { animation-delay: 0.15s; }
-    .bars span:nth-child(5) { animation-delay: 0.5s; }
-
-    .chart {
-      height: 65px;
-      margin-top: 0.35rem;
-      border-radius: 10px;
-      background:
-        linear-gradient(180deg, rgba(124, 58, 237, 0.3), rgba(124, 58, 237, 0.01)),
-        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08) 1px, transparent 1px, transparent 22px);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .chart::after {
+    .strength-item::before {
       content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.34), transparent);
-      transform: translateX(-110%);
-      animation: sweep 5.8s linear infinite;
-    }
-
-    .floating-widget {
-      position: absolute;
-      right: -22px;
-      bottom: 22px;
-      width: 190px;
-      padding: 0.85rem;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(15, 23, 42, 0.88);
-      box-shadow: var(--glow-cyan);
-      animation: bob 4.5s ease-in-out infinite;
-      z-index: 3;
-    }
-
-    .floating-widget p {
-      margin: 0;
-      font-size: 0.8rem;
-      color: #bfdbfe;
-    }
-
-    .floating-widget strong {
       display: block;
-      font-size: 1.2rem;
-      margin: 0.2rem 0;
+      width: 32px;
+      height: 2px;
+      background: var(--accent);
+      margin: 0 auto 1rem;
+    }
+
+    .strength-item p {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--primary);
+      line-height: 1.4;
+    }
+
+    /* Insights */
+    .insight-list {
+      margin-top: 2.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .insight-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 1.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .insight-item:last-child {
+      border-bottom: none;
+    }
+
+    .insight-item h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .insight-item span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    /* Contact */
+    .contact-section {
+      background: var(--primary);
+      color: #fff;
+      border-bottom: none;
+    }
+
+    .contact-section .section-label {
+      color: var(--accent);
+    }
+
+    .contact-section .section-title {
       color: #fff;
     }
 
-    .floating-widget small {
-      color: #86efac;
-      font-size: 0.78rem;
-      font-weight: 700;
+    .contact-block {
+      margin-top: 1.5rem;
+      padding: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      max-width: 640px;
     }
 
-    .feature-grid {
-      margin-top: 2rem;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
+    .contact-block p {
+      color: #94A3B8;
+      font-size: 1.05rem;
+      line-height: 1.75;
     }
 
-    .feature-card {
-      padding: 1.2rem 1rem;
-      border-radius: var(--radius-sm);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    .contact-block a {
+      color: #fff;
+      font-weight: 600;
+      border-bottom: 1px solid var(--accent);
     }
 
-    .feature-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(34, 211, 238, 0.46);
-      box-shadow: var(--shadow), var(--glow-violet);
+    .contact-block a:hover {
+      color: var(--accent);
     }
 
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: linear-gradient(150deg, rgba(124, 58, 237, 0.9), rgba(34, 211, 238, 0.95));
-      display: grid;
-      place-items: center;
-      font-weight: 700;
-      margin-bottom: 0.9rem;
-      box-shadow: var(--glow-violet);
-    }
-
-    .feature-card h3 {
-      font-size: 1.02rem;
-      margin-bottom: 0.45rem;
-      letter-spacing: -0.01em;
-    }
-
-    .feature-card p {
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .workflow-wrap {
-      margin-top: 2rem;
-      padding: 1.2rem;
-    }
-
-    .timeline {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 0.85rem;
-      position: relative;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 4%;
-      right: 4%;
-      top: 35px;
-      height: 2px;
-      background: linear-gradient(90deg, rgba(34, 211, 238, 0.5), rgba(124, 58, 237, 0.8));
-    }
-
-    .step {
-      position: relative;
-      padding: 0.9rem 0.8rem;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      background: rgba(15, 23, 42, 0.62);
-      min-height: 124px;
-      display: grid;
-      align-content: start;
-      gap: 0.35rem;
-    }
-
-    .step span {
-      width: 22px;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-size: 0.76rem;
-      font-weight: 700;
-      background: linear-gradient(160deg, var(--cyan), var(--violet));
-      box-shadow: var(--glow-cyan);
-    }
-
-    .step h4 {
-      font-size: 0.95rem;
-      line-height: 1.3;
-    }
-
-    .step p {
-      color: var(--muted);
-      font-size: 0.86rem;
-      line-height: 1.45;
-    }
-
-    .dashboard-preview {
-      margin-top: 2rem;
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: 1.4fr 1fr;
-    }
-
-    .panel {
-      padding: 1rem;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.17);
-      background: rgba(15, 23, 42, 0.64);
-    }
-
-    .panel h4 {
-      font-size: 1rem;
-      margin-bottom: 0.7rem;
-      color: #f8fafc;
-    }
-
-    .big-chart {
-      border-radius: 12px;
-      min-height: 230px;
-      background:
-        linear-gradient(180deg, rgba(34, 211, 238, 0.2), rgba(124, 58, 237, 0.02) 70%),
-        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08) 1px, transparent 1px, transparent 24px),
-        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.06) 1px, transparent 1px, transparent 24px);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .big-chart::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(110deg, transparent 35%, rgba(34, 211, 238, 0.23) 50%, transparent 66%);
-      transform: translateX(-100%);
-      animation: sweep 6s linear infinite;
-    }
-
-    .widget-col {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .mini-list {
-      display: grid;
-      gap: 0.65rem;
-    }
-
-    .mini-item {
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      padding: 0.7rem;
-      background: rgba(255, 255, 255, 0.03);
-      display: flex;
-      justify-content: space-between;
-      gap: 0.6rem;
-      align-items: center;
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: #94A3B8;
+      padding: 2.5rem 0;
       font-size: 0.88rem;
     }
 
-    .mini-item small {
-      color: #a7f3d0;
-      font-weight: 700;
-    }
-
-    .metrics-grid {
-      margin-top: 2rem;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0.9rem;
-    }
-
-    .metric {
-      text-align: center;
-      padding: 1.1rem 0.8rem;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background: rgba(15, 23, 42, 0.65);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .metric::before {
-      content: "";
-      position: absolute;
-      inset: auto -20% -35% -20%;
-      height: 75%;
-      background: radial-gradient(circle at center, rgba(34, 211, 238, 0.24), transparent 68%);
-      animation: pulse 4s ease-in-out infinite;
-    }
-
-    .metric strong {
-      font-size: clamp(1.35rem, 1.05rem + 1vw, 2rem);
-      display: block;
-      margin-bottom: 0.2rem;
-      font-family: "Space Grotesk", sans-serif;
-      text-shadow: var(--glow-cyan);
-    }
-
-    .metric p {
-      color: var(--muted);
-      font-size: 0.9rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .testimonial-grid {
-      margin-top: 2rem;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .testimonial {
-      padding: 1rem;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background: rgba(255, 255, 255, 0.04);
-      display: grid;
-      gap: 0.7rem;
-    }
-
-    .testimonial p {
-      color: #dbeafe;
-      font-size: 0.93rem;
-      line-height: 1.55;
-    }
-
-    .person strong {
-      display: block;
-      font-size: 0.95rem;
-    }
-
-    .person span {
-      color: var(--muted);
-      font-size: 0.82rem;
-    }
-
-    .pricing-grid {
-      margin-top: 2rem;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .price-card {
-      padding: 1.2rem;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      background: rgba(15, 23, 42, 0.66);
-      display: grid;
-      gap: 0.9rem;
-    }
-
-    .price-card.highlight {
-      border: 1px solid rgba(34, 211, 238, 0.52);
-      box-shadow: var(--shadow), var(--glow-cyan);
-      transform: translateY(-4px);
-      background: linear-gradient(150deg, rgba(124, 58, 237, 0.2), rgba(34, 211, 238, 0.08));
-    }
-
-    .price-title {
+    .footer-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 0.6rem;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
-    .price-title strong {
-      font-size: 1.05rem;
-    }
-
-    .badge {
-      font-size: 0.72rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 0.22rem 0.5rem;
-      border-radius: 999px;
-      color: #e0f2fe;
-      background: rgba(34, 211, 238, 0.24);
-      border: 1px solid rgba(34, 211, 238, 0.44);
-    }
-
-    .price {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 2rem;
-      line-height: 1;
-    }
-
-    .price span {
-      font-size: 0.92rem;
-      color: var(--muted);
-      font-family: "Inter", sans-serif;
-    }
-
-    .price-card ul {
-      list-style: none;
-      display: grid;
-      gap: 0.45rem;
-      color: #dbeafe;
-      font-size: 0.9rem;
-    }
-
-    .price-card li::before {
-      content: "• ";
-      color: var(--cyan);
+    .footer-brand {
+      font-family: "Sora", "Inter", sans-serif;
       font-weight: 700;
-    }
-
-    .cta-panel {
-      text-align: center;
-      padding: 2.4rem 1.2rem;
-      border-radius: 18px;
-      background:
-        radial-gradient(420px 240px at 20% 20%, rgba(124, 58, 237, 0.38), transparent 70%),
-        radial-gradient(420px 240px at 84% 78%, rgba(34, 211, 238, 0.3), transparent 70%),
-        linear-gradient(120deg, rgba(15, 23, 42, 0.88), rgba(30, 41, 59, 0.88));
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-panel::after {
-      content: "";
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      right: -40px;
-      top: -40px;
-      background: radial-gradient(circle, rgba(34, 211, 238, 0.26), transparent 62%);
-      animation: pulse 6s ease-in-out infinite;
-    }
-
-    .cta-panel h2 {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: clamp(1.8rem, 1.2rem + 1.8vw, 2.9rem);
-      margin-bottom: 0.7rem;
-      letter-spacing: -0.02em;
-    }
-
-    .cta-panel p {
-      margin-inline: auto;
-      max-width: 680px;
-      color: #dbeafe;
-      margin-bottom: 1.2rem;
-    }
-
-    .contact-grid {
-      margin-top: 2rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .contact-card,
-    .contact-form {
-      padding: 1.15rem;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.17);
-      background: rgba(15, 23, 42, 0.64);
-    }
-
-    .contact-list {
-      margin-top: 1rem;
-      display: grid;
-      gap: 0.7rem;
-      list-style: none;
-      color: #cbd5e1;
-      font-size: 0.92rem;
-    }
-
-    .contact-form form {
-      display: grid;
-      gap: 0.65rem;
-    }
-
-    .contact-form label {
-      font-size: 0.84rem;
-      color: #dbeafe;
-      margin-top: 0.3rem;
-    }
-
-    .contact-form input,
-    .contact-form textarea,
-    .contact-form select {
-      width: 100%;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background: rgba(255, 255, 255, 0.04);
-      border-radius: 10px;
-      padding: 0.7rem 0.8rem;
       color: #fff;
-      font: inherit;
-      outline: none;
-      transition: border-color 0.22s ease, box-shadow 0.22s ease;
+      font-size: 0.95rem;
     }
 
-    .contact-form textarea {
-      min-height: 115px;
-      resize: vertical;
+    .footer-email a {
+      color: #94A3B8;
     }
 
-    .contact-form input:focus,
-    .contact-form textarea:focus,
-    .contact-form select:focus {
-      border-color: rgba(34, 211, 238, 0.6);
-      box-shadow: var(--glow-cyan);
-    }
-
-    .contact-form select option {
-      background: #172554;
+    .footer-email a:hover {
       color: #fff;
-    }
-
-    footer {
-      padding: 3rem 0 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(2, 6, 23, 0.56);
-      margin-top: 3rem;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .footer-col h4 {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 0.98rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .footer-col ul {
-      list-style: none;
-      display: grid;
-      gap: 0.5rem;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .footer-col ul a:hover {
-      color: #e2e8f0;
     }
 
     .copyright {
-      margin-top: 1.4rem;
-      color: #94a3b8;
+      color: #64748B;
       font-size: 0.82rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-      padding-top: 1rem;
     }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: rise 0.9s ease forwards;
-    }
+    @media (max-width: 960px) {
+      .card-grid.cols-3 {
+        grid-template-columns: 1fr 1fr;
+      }
 
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.25s; }
-    .delay-3 { animation-delay: 0.35s; }
+      .strength-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
 
-    @keyframes rise {
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      .case-body {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .company-block {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
       }
     }
 
-    @keyframes bob {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
+    @media (max-width: 640px) {
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.82rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 0.7; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.08); }
-    }
-
-    @keyframes drift {
-      0%, 100% { transform: translateY(0) translateX(0); }
-      50% { transform: translateY(8px) translateX(8px); }
-    }
-
-    @keyframes pulseBars {
-      0%, 100% { height: 30%; }
-      50% { height: 100%; }
-    }
-
-    @keyframes sweep {
-      to { transform: translateX(110%); }
-    }
-
-    @keyframes spin {
-      to { transform: rotate(1turn); }
-    }
-
-    @media (max-width: 1080px) {
-      .hero-grid,
-      .dashboard-preview,
-      .contact-grid {
+      .card-grid.cols-3,
+      .card-grid.cols-2 {
         grid-template-columns: 1fr;
       }
 
-      .timeline {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .timeline::before {
-        display: none;
-      }
-
-      .metrics-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .footer-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 860px) {
-      .feature-grid,
-      .testimonial-grid,
-      .pricing-grid {
+      .strength-list {
         grid-template-columns: 1fr 1fr;
       }
 
-      .timeline {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .hero {
-        padding-top: 4rem;
-      }
-
-      .floating-widget {
-        right: 14px;
-        bottom: 14px;
-      }
-    }
-
-    @media (max-width: 620px) {
-      .section {
-        padding: 4.3rem 0;
-      }
-
-      .feature-grid,
-      .testimonial-grid,
-      .pricing-grid,
-      .timeline,
-      .metrics-grid,
-      .footer-grid {
+      .case-body {
         grid-template-columns: 1fr;
       }
 
       .navbar {
         flex-direction: column;
         align-items: flex-start;
-        padding: 0.9rem 0;
+        padding: 1rem 0;
       }
 
-      .nav-links {
-        gap: 0.8rem;
-      }
-
-      .btn {
-        min-width: 148px;
-        width: 100%;
-      }
-
-      .cta-group {
-        width: 100%;
-      }
-
-      .hero-panel {
-        padding: 0.75rem;
-      }
-
-      .dashboard {
-        min-height: 430px;
-      }
-
-      .floating-widget {
-        position: static;
-        margin-top: 0.8rem;
-        width: 100%;
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
 </head>
 <body>
-  <header class="nav-wrap">
+  <header class="header">
     <div class="container navbar">
-      <a href="#" class="brand" aria-label="Zivqen Home">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span>Zivqen</span>
-      </a>
+      <a href="#" class="brand" aria-label="AVNIX Home">AVNIX<span>.space</span></a>
       <ul class="nav-links">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#automation">Automation</a></li>
-        <li><a href="#dashboard">Dashboard</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#support">Support</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#company">Company</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#solutions">Solutions</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#insights">Insights</a></li>
       </ul>
     </div>
   </header>
 
   <main>
-    <section class="hero section">
-      <div class="container hero-grid">
-        <div class="reveal">
-          <p class="eyebrow">Neural SaaS Intelligence Interface</p>
-          <h1>The AI Operating System for Modern Teams</h1>
-          <p>
-            Zivqen unifies automation, decision intelligence, and collaborative AI into one productivity ecosystem. Connect your tools, optimize every workflow, and scale digital operations with precision.
-          </p>
-          <div class="cta-group">
-            <a class="btn btn-primary" href="#pricing">Start Free Trial</a>
-            <a class="btn btn-secondary" href="#dashboard">Watch Demo</a>
+    <section class="hero">
+      <div class="container">
+        <h1>Building Scalable Digital Systems for the Future</h1>
+        <p>AVNIX designs and engineers reliable software systems, automation solutions, and modern digital infrastructure for businesses worldwide.</p>
+        <div class="cta-group">
+          <a class="btn btn-primary" href="#services">Explore Services</a>
+          <a class="btn btn-secondary" href="#solutions">View Solutions</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="company" class="section">
+      <div class="container">
+        <p class="section-label">Company</p>
+        <h2 class="section-title">Engineering Reliable Digital Systems for Modern Businesses</h2>
+        <div class="company-block">
+          <p>AVNIX is a technology engineering company specializing in building scalable, secure, and efficient digital systems.</p>
+          <p>We combine software engineering, automation, and system design to deliver long-term digital solutions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <p class="section-label">Services</p>
+        <h2 class="section-title">Enterprise Engineering Capabilities</h2>
+        <p class="section-copy">Structured technical services designed for organizations that require durable, maintainable, and high-performance digital infrastructure.</p>
+
+        <div class="card-grid cols-3">
+          <article class="card">
+            <h3>Custom Software Engineering</h3>
+            <p>End-to-end development of business-critical applications built on clean architecture, rigorous testing standards, and maintainable codebases.</p>
+          </article>
+          <article class="card">
+            <h3>System Architecture Design</h3>
+            <p>Strategic system planning including service boundaries, data flow modeling, and infrastructure blueprints for long-term scalability.</p>
+          </article>
+          <article class="card">
+            <h3>Business Process Automation</h3>
+            <p>Workflow automation systems that reduce manual overhead, standardize operations, and integrate seamlessly with existing business tools.</p>
+          </article>
+          <article class="card">
+            <h3>API &amp; Backend Development</h3>
+            <p>Secure, performant backend services and API layers engineered for reliability, extensibility, and enterprise integration requirements.</p>
+          </article>
+          <article class="card">
+            <h3>Cloud Infrastructure Solutions</h3>
+            <p>Cloud-native deployment architectures with monitoring, security controls, and cost-optimized infrastructure management.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="solutions" class="section">
+      <div class="container">
+        <p class="section-label">Solutions</p>
+        <h2 class="section-title">Industry-Focused Digital Systems</h2>
+        <p class="section-copy">Targeted engineering solutions aligned with enterprise operational requirements and digital transformation objectives.</p>
+
+        <div class="card-grid cols-3">
+          <article class="card">
+            <h3>Enterprise Systems</h3>
+            <p>Integrated platforms for core business operations, internal tooling, and cross-departmental system coordination.</p>
+          </article>
+          <article class="card">
+            <h3>Workflow Automation</h3>
+            <p>Intelligent process pipelines that automate repetitive tasks, enforce business rules, and improve operational throughput.</p>
+          </article>
+          <article class="card">
+            <h3>Digital Transformation</h3>
+            <p>Modernization of legacy systems and manual processes into efficient, data-driven digital workflows.</p>
+          </article>
+          <article class="card">
+            <h3>Data &amp; Integration Systems</h3>
+            <p>Unified data pipelines, ETL processes, and system integrations that enable reliable information flow across platforms.</p>
+          </article>
+          <article class="card">
+            <h3>Scalable Web Platforms</h3>
+            <p>High-performance web applications and portals engineered for growth, security, and sustained user demand.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="section">
+      <div class="container">
+        <p class="section-label">Work</p>
+        <h2 class="section-title">Engineering Case Studies</h2>
+        <p class="section-copy">Measurable engineering outcomes delivered through structured problem analysis and systematic technical execution.</p>
+
+        <article class="case-study">
+          <div class="case-header">
+            <h3>Enterprise Workflow Automation Platform</h3>
+            <span>Operations &amp; Automation</span>
           </div>
-          <div class="hero-points">
-            <span>99.9% uptime engine</span>
-            <span>Enterprise-ready controls</span>
-            <span>Deploy in minutes</span>
+          <div class="case-body">
+            <div class="case-col">
+              <h4>Problem</h4>
+              <p>Manual approval chains across four departments caused 48-hour processing delays and inconsistent audit trails.</p>
+            </div>
+            <div class="case-col">
+              <h4>Approach</h4>
+              <p>Mapped existing workflows, defined service boundaries, and implemented event-driven automation with role-based controls.</p>
+            </div>
+            <div class="case-col">
+              <h4>Solution</h4>
+              <p>Deployed a centralized automation platform with API integrations, automated routing, and real-time status tracking.</p>
+            </div>
+            <div class="case-col">
+              <h4>Outcome</h4>
+              <p>Processing time reduced by 72%. Full audit compliance achieved with zero manual handoff errors.</p>
+            </div>
           </div>
-        </div>
+        </article>
 
-        <div class="hero-panel glass reveal delay-1" aria-label="AI dashboard preview">
-          <article class="dashboard">
-            <div class="topbar">
-              <div class="dots" aria-hidden="true">
-                <span></span><span></span><span></span>
-              </div>
-              <strong>zivqen.site</strong>
-            </div>
-            <div class="dash-grid">
-              <div class="dash-card">
-                <h4>Automation Velocity</h4>
-                <div class="dash-value">+41%</div>
-                <div class="bars" aria-hidden="true">
-                  <span style="height:42%"></span>
-                  <span style="height:76%"></span>
-                  <span style="height:52%"></span>
-                  <span style="height:95%"></span>
-                  <span style="height:67%"></span>
-                </div>
-              </div>
-              <div class="dash-card">
-                <h4>AI Decision Accuracy</h4>
-                <div class="dash-value">97.8%</div>
-                <div class="chart" aria-hidden="true"></div>
-              </div>
-              <div class="dash-card">
-                <h4>Team Throughput</h4>
-                <div class="dash-value">10.4k Tasks</div>
-                <p style="color:#93c5fd;font-size:0.82rem;">Weekly optimized operations</p>
-              </div>
-              <div class="dash-card">
-                <h4>Smart Routing</h4>
-                <div class="dash-value">Live</div>
-                <p style="color:#a7f3d0;font-size:0.82rem;">124 workflows auto-prioritized</p>
-              </div>
-            </div>
-          </article>
-          <aside class="floating-widget">
-            <p>Productivity forecast</p>
-            <strong>+28.6%</strong>
-            <small>AI confidence: 99.2%</small>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section id="features" class="section">
-      <div class="container">
-        <p class="eyebrow reveal">Core Intelligence Modules</p>
-        <h2 class="section-title reveal delay-1">Automate Smarter. Scale Faster.</h2>
-        <p class="section-copy reveal delay-2">
-          Every Zivqen module is built to remove operational friction and convert repetitive complexity into intelligent velocity.
-        </p>
-
-        <div class="feature-grid">
-          <article class="feature-card glass reveal">
-            <div class="feature-icon">01</div>
-            <h3>Smart Workflow Automation</h3>
-            <p>Design autonomous workflows that adapt in real time to team behavior and business logic.</p>
-          </article>
-          <article class="feature-card glass reveal delay-1">
-            <div class="feature-icon">02</div>
-            <h3>AI Decision Engine</h3>
-            <p>Prioritize actions with contextual intelligence that predicts the highest-impact next step.</p>
-          </article>
-          <article class="feature-card glass reveal delay-2">
-            <div class="feature-icon">03</div>
-            <h3>Predictive Analytics</h3>
-            <p>Forecast outcomes and identify bottlenecks before performance drops across your operation.</p>
-          </article>
-          <article class="feature-card glass reveal">
-            <div class="feature-icon">04</div>
-            <h3>Team Collaboration AI</h3>
-            <p>Coordinate teams with AI copilots that provide shared context and reduce communication lag.</p>
-          </article>
-          <article class="feature-card glass reveal delay-1">
-            <div class="feature-icon">05</div>
-            <h3>Intelligent Task Routing</h3>
-            <p>Assign tasks dynamically based on skill, load, deadlines, and automation confidence score.</p>
-          </article>
-          <article class="feature-card glass reveal delay-2">
-            <div class="feature-icon">06</div>
-            <h3>Real-Time Productivity Insights</h3>
-            <p>Monitor live KPIs, AI recommendations, and execution quality from one unified operations layer.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="automation" class="section">
-      <div class="container">
-        <p class="eyebrow reveal">Workflow Intelligence</p>
-        <h2 class="section-title reveal delay-1">From Setup to Scale in Five AI Steps</h2>
-        <p class="section-copy reveal delay-2">A connected automation path designed for rapid rollout and measurable business outcomes.</p>
-
-        <div class="workflow-wrap glass reveal delay-2">
-          <div class="timeline">
-            <article class="step">
-              <span>1</span>
-              <h4>Connect Your Workspace</h4>
-              <p>Integrate tools, data streams, and team environments in one secure layer.</p>
-            </article>
-            <article class="step">
-              <span>2</span>
-              <h4>Train AI Systems</h4>
-              <p>Calibrate intelligence with your patterns, goals, and execution signals.</p>
-            </article>
-            <article class="step">
-              <span>3</span>
-              <h4>Automate Operations</h4>
-              <p>Launch autonomous processes across workflows and team pipelines.</p>
-            </article>
-            <article class="step">
-              <span>4</span>
-              <h4>Analyze Performance</h4>
-              <p>Track adaptive dashboards and continuous AI optimization recommendations.</p>
-            </article>
-            <article class="step">
-              <span>5</span>
-              <h4>Scale Productivity</h4>
-              <p>Expand high-performing systems across departments and enterprise units.</p>
-            </article>
+        <article class="case-study">
+          <div class="case-header">
+            <h3>Cloud Infrastructure Migration</h3>
+            <span>Infrastructure &amp; Systems</span>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="dashboard" class="section">
-      <div class="container">
-        <p class="eyebrow reveal">Platform Visibility</p>
-        <h2 class="section-title reveal delay-1">The Future of Intelligent Operations</h2>
-        <p class="section-copy reveal delay-2">Layered SaaS analytics panels built for leaders who need instant clarity and continuous AI guidance.</p>
-
-        <div class="dashboard-preview">
-          <article class="panel reveal">
-            <h4>Productivity Intelligence Map</h4>
-            <div class="big-chart" aria-hidden="true"></div>
-          </article>
-
-          <div class="widget-col">
-            <article class="panel reveal delay-1">
-              <h4>AI-Generated Insights</h4>
-              <div class="mini-list">
-                <div class="mini-item"><span>Cycle time reduced by 18%</span><small>Action</small></div>
-                <div class="mini-item"><span>Team A overload detected</span><small>Priority</small></div>
-                <div class="mini-item"><span>Automation confidence increased</span><small>Stable</small></div>
-              </div>
-            </article>
-            <article class="panel reveal delay-2">
-              <h4>Automation Controls</h4>
-              <div class="mini-list">
-                <div class="mini-item"><span>Routing rules</span><small>Enabled</small></div>
-                <div class="mini-item"><span>Escalation monitor</span><small>Live</small></div>
-                <div class="mini-item"><span>SLA guardrails</span><small>Protected</small></div>
-              </div>
-            </article>
+          <div class="case-body">
+            <div class="case-col">
+              <h4>Problem</h4>
+              <p>On-premise infrastructure limited scalability and incurred rising maintenance costs with single points of failure.</p>
+            </div>
+            <div class="case-col">
+              <h4>Approach</h4>
+              <p>Conducted infrastructure assessment, designed cloud-native architecture, and executed phased migration with zero-downtime strategy.</p>
+            </div>
+            <div class="case-col">
+              <h4>Solution</h4>
+              <p>Migrated core services to containerized cloud infrastructure with automated scaling, monitoring, and disaster recovery.</p>
+            </div>
+            <div class="case-col">
+              <h4>Outcome</h4>
+              <p>99.97% uptime achieved. Infrastructure costs reduced by 38% with 4x improved deployment velocity.</p>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </article>
 
-    <section class="section">
-      <div class="container">
-        <p class="eyebrow reveal">Performance at Scale</p>
-        <h2 class="section-title reveal delay-1">Proven AI Productivity Outcomes</h2>
-        <div class="metrics-grid">
-          <article class="metric reveal">
-            <strong>500K+</strong>
-            <p>Automated Workflows</p>
-          </article>
-          <article class="metric reveal delay-1">
-            <strong>99.9%</strong>
-            <p>Platform Reliability</p>
-          </article>
-          <article class="metric reveal delay-2">
-            <strong>10M+</strong>
-            <p>Tasks Optimized</p>
-          </article>
-          <article class="metric reveal">
-            <strong>120+</strong>
-            <p>Enterprise Teams</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <p class="eyebrow reveal">Customer Wins</p>
-        <h2 class="section-title reveal delay-1">Trusted by Growth-Focused Teams</h2>
-        <div class="testimonial-grid">
-          <article class="testimonial reveal">
-            <p>“Zivqen replaced fragmented tooling with one intelligent operating layer. Our team now ships faster with fewer manual decisions.”</p>
-            <div class="person">
-              <strong>Aria Kline</strong>
-              <span>Founder, NovaGrid Labs</span>
+        <article class="case-study">
+          <div class="case-header">
+            <h3>API Integration &amp; Data Systems</h3>
+            <span>Integration &amp; Data</span>
+          </div>
+          <div class="case-body">
+            <div class="case-col">
+              <h4>Problem</h4>
+              <p>Disconnected systems created data silos, duplicate entries, and delayed reporting across business units.</p>
             </div>
-          </article>
-          <article class="testimonial reveal delay-1">
-            <p>“The AI decision engine surfaced bottlenecks we were blind to. We scaled operations without adding overhead.”</p>
-            <div class="person">
-              <strong>Mateo Chen</strong>
-              <span>COO, OrbitFlow Systems</span>
+            <div class="case-col">
+              <h4>Approach</h4>
+              <p>Defined unified data schemas, built standardized API middleware, and established synchronization protocols.</p>
             </div>
-          </article>
-          <article class="testimonial reveal delay-2">
-            <p>“Within one quarter, automated routing and predictive insights improved throughput by 34%. Zivqen became mission-critical.”</p>
-            <div class="person">
-              <strong>Nia Alvarez</strong>
-              <span>Head of Product, Stratify AI</span>
+            <div class="case-col">
+              <h4>Solution</h4>
+              <p>Delivered an integration layer connecting six platforms with automated data validation and centralized reporting.</p>
             </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="pricing" class="section">
-      <div class="container">
-        <p class="eyebrow reveal">Pricing</p>
-        <h2 class="section-title reveal delay-1">Flexible Plans for Every Growth Stage</h2>
-        <p class="section-copy reveal delay-2">Start lean, scale fast, and unlock enterprise automation with confidence.</p>
-
-        <div class="pricing-grid">
-          <article class="price-card reveal">
-            <div class="price-title">
-              <strong>Starter</strong>
+            <div class="case-col">
+              <h4>Outcome</h4>
+              <p>Data accuracy improved to 99.4%. Reporting cycles shortened from weekly to real-time availability.</p>
             </div>
-            <p class="price">$39 <span>/month</span></p>
-            <ul>
-              <li>Up to 5 team members</li>
-              <li>50 active automations</li>
-              <li>Standard analytics dashboard</li>
-              <li>Email support</li>
-            </ul>
-            <a class="btn btn-secondary" href="#support">Choose Starter</a>
-          </article>
-
-          <article class="price-card highlight reveal delay-1">
-            <div class="price-title">
-              <strong>Growth</strong>
-              <span class="badge">Most Popular</span>
-            </div>
-            <p class="price">$129 <span>/month</span></p>
-            <ul>
-              <li>Up to 30 team members</li>
-              <li>Unlimited workflow automation</li>
-              <li>AI decision engine + forecasts</li>
-              <li>Priority support + onboarding</li>
-            </ul>
-            <a class="btn btn-primary" href="#support">Choose Growth</a>
-          </article>
-
-          <article class="price-card reveal delay-2">
-            <div class="price-title">
-              <strong>Enterprise</strong>
-            </div>
-            <p class="price">Custom <span>annual</span></p>
-            <ul>
-              <li>Advanced governance controls</li>
-              <li>Dedicated AI optimization team</li>
-              <li>Custom API + SSO integration</li>
-              <li>24/7 strategic support</li>
-            </ul>
-            <a class="btn btn-secondary" href="#support">Contact Sales</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <article class="cta-panel reveal">
-          <h2>Build the Future With AI</h2>
-          <p>
-            Join modern teams using Zivqen to orchestrate intelligent operations, automate at scale, and accelerate growth with confidence.
-          </p>
-          <div class="cta-group" style="justify-content:center; margin-bottom:0;">
-            <a class="btn btn-primary" href="#support">Get Started</a>
-            <a class="btn btn-secondary" href="#support">Schedule Demo</a>
           </div>
         </article>
       </div>
     </section>
 
-    <section id="support" class="section">
+    <section id="why" class="section">
       <div class="container">
-        <p class="eyebrow reveal">Contact & Support</p>
-        <h2 class="section-title reveal delay-1">Talk to the Zivqen Team</h2>
-        <p class="section-copy reveal delay-2">Tell us your goals and we will map an AI automation strategy tailored to your operation.</p>
+        <p class="section-label">Why AVNIX</p>
+        <h2 class="section-title">Technical Strengths</h2>
+        <p class="section-copy">A disciplined engineering approach focused on system reliability, architectural clarity, and long-term maintainability.</p>
 
-        <div class="contact-grid">
-          <article class="contact-card reveal">
-            <h3 style="font-family:'Space Grotesk',sans-serif; margin-bottom:0.45rem;">AI Assistant Support</h3>
-            <p style="color:#cbd5e1;">Get implementation guidance, onboarding plans, and enterprise support from product specialists.</p>
-            <ul class="contact-list">
-              <li>Average first response: 7 minutes</li>
-              <li>Global support across all time zones</li>
-              <li>Dedicated solutions architect for enterprise</li>
-            </ul>
+        <div class="strength-list">
+          <div class="strength-item"><p>Engineering-first approach</p></div>
+          <div class="strength-item"><p>Scalable system design</p></div>
+          <div class="strength-item"><p>Clean architecture standards</p></div>
+          <div class="strength-item"><p>Performance-driven development</p></div>
+          <div class="strength-item"><p>Reliable long-term solutions</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="insights" class="section">
+      <div class="container">
+        <p class="section-label">Insights</p>
+        <h2 class="section-title">Technical Knowledge Hub</h2>
+        <p class="section-copy">Engineering perspectives on system design, infrastructure, and digital operations.</p>
+
+        <div class="insight-list">
+          <article class="insight-item">
+            <h3>System Design Principles for Enterprise Applications</h3>
+            <span>System Design</span>
           </article>
-
-          <article class="contact-form reveal delay-1">
-            <form action="#" method="post">
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" placeholder="Your full name" required />
-
-              <label for="company">Company</label>
-              <input id="company" name="company" type="text" placeholder="Your company" required />
-
-              <label for="team">Team Size</label>
-              <select id="team" name="team" required>
-                <option value="" selected disabled>Select team size</option>
-                <option>1-10</option>
-                <option>11-50</option>
-                <option>51-250</option>
-                <option>251+</option>
-              </select>
-
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="What would you like to automate with Zivqen?" required></textarea>
-
-              <button type="submit" class="btn btn-primary" style="margin-top:0.4rem;">Send Request</button>
-            </form>
+          <article class="insight-item">
+            <h3>Engineering Best Practices for Maintainable Codebases</h3>
+            <span>Engineering</span>
           </article>
+          <article class="insight-item">
+            <h3>Automation Strategies for Business Process Optimization</h3>
+            <span>Automation</span>
+          </article>
+          <article class="insight-item">
+            <h3>Digital Infrastructure Trends for Scalable Organizations</h3>
+            <span>Infrastructure</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <p class="section-label">Contact</p>
+        <h2 class="section-title">Business Inquiries</h2>
+        <div class="contact-block">
+          <p>For business inquiries, partnerships, or project discussions, contact us directly at <a href="mailto:contact@avnix.space">contact@avnix.space</a></p>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <article class="footer-col">
-          <a href="#" class="brand" style="margin-bottom:0.9rem; display:inline-flex;">
-            <span class="brand-mark" aria-hidden="true"></span>
-            <span>Zivqen</span>
-          </a>
-          <p style="color:#cbd5e1; max-width:280px; font-size:0.9rem;">
-            AI-powered SaaS platform for intelligent operations, workflow automation, and high-performance team productivity.
-          </p>
-        </article>
-
-        <article class="footer-col">
-          <h4>Product</h4>
-          <ul>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#automation">Workflow AI</a></li>
-            <li><a href="#dashboard">Dashboard</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-          </ul>
-        </article>
-
-        <article class="footer-col">
-          <h4>Resources</h4>
-          <ul>
-            <li><a href="#">API Docs</a></li>
-            <li><a href="#">Integrations</a></li>
-            <li><a href="#">Security</a></li>
-            <li><a href="#">Status</a></li>
-          </ul>
-        </article>
-
-        <article class="footer-col">
-          <h4>Social</h4>
-          <ul>
-            <li><a href="#">X / Twitter</a></li>
-            <li><a href="#">LinkedIn</a></li>
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">YouTube</a></li>
-          </ul>
-        </article>
-      </div>
-
-      <p class="copyright">© 2026 Zivqen Inc. All rights reserved. Built for scalable AI productivity at zivqen.site.</p>
+    <div class="container footer-inner">
+      <span class="footer-brand">AVNIX Space</span>
+      <span class="footer-email"><a href="mailto:contact@avnix.space">contact@avnix.space</a></span>
+      <span class="copyright">© 2026 AVNIX Space. All rights reserved.</span>
     </div>
   </footer>
 </body>
