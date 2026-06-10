@@ -3,22 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AVNIX | Engineering Reliable Digital Systems for Modern Businesses</title>
-  <meta name="description" content="AVNIX designs and engineers reliable software systems, automation solutions, and modern digital infrastructure for businesses worldwide." />
+  <title>ZIVQEN | Intelligent Systems for Automated Digital Operations</title>
+  <meta name="description" content="ZIVQEN designs intelligent automation systems, AI workflows, and scalable digital infrastructure that help businesses operate faster and smarter." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary: #0B1220;
-      --secondary: #1E40AF;
+      --primary: #0B1020;
+      --secondary: #2563EB;
       --accent: #14B8A6;
+      --highlight: #A3E635;
       --bg: #F8FAFC;
+      --surface: #E2E8F0;
       --text: #0F172A;
       --text-muted: #475569;
       --border: #E2E8F0;
       --container: 1140px;
       --radius: 6px;
+      --shadow: 0 1px 3px rgba(11, 16, 32, 0.06);
+      --shadow-hover: 0 4px 12px rgba(11, 16, 32, 0.08);
     }
 
     * {
@@ -85,13 +89,33 @@
       line-height: 1.75;
     }
 
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* Header */
     .header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
+      background: rgba(248, 250, 252, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .header.scrolled {
+      background: rgba(248, 250, 252, 0.97);
+      border-bottom-color: var(--border);
+      box-shadow: var(--shadow);
     }
 
     .navbar {
@@ -123,14 +147,65 @@
       color: var(--text-muted);
     }
 
-    .nav-links a:hover {
-      color: var(--text);
+    .nav-links a {
+      position: relative;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: var(--secondary);
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--secondary);
+    }
+
+    .nav-links a.active::after,
+    .nav-links a:hover::after {
+      width: 100%;
     }
 
     /* Hero */
     .hero {
       padding: 5.5rem 0 5rem;
       border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -40%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -30%;
+      left: -5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(20, 184, 166, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
     }
 
     .hero h1 {
@@ -162,12 +237,18 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 0.5rem;
       padding: 0.75rem 1.5rem;
       font-size: 0.9rem;
       font-weight: 600;
       border-radius: var(--radius);
       border: 1px solid transparent;
-      transition: background 0.15s ease, border-color 0.15s ease;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
     }
 
     .btn-primary {
@@ -178,6 +259,7 @@
 
     .btn-primary:hover {
       background: #1d4ed8;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
     }
 
     .btn-secondary {
@@ -187,23 +269,41 @@
     }
 
     .btn-secondary:hover {
-      border-color: var(--text-muted);
+      border-color: var(--secondary);
+      color: var(--secondary);
     }
 
-    /* Company */
-    .company-block {
+    .btn-copy {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.2);
+      margin-top: 1.25rem;
+    }
+
+    .btn-copy:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: var(--accent);
+    }
+
+    .btn-copy.copied {
+      border-color: var(--highlight);
+      color: var(--highlight);
+    }
+
+    /* About */
+    .about-block {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
       align-items: start;
     }
 
-    .company-block p {
+    .about-block p {
       color: var(--text-muted);
       line-height: 1.8;
     }
 
-    .company-block p + p {
+    .about-block p + p {
       margin-top: 1rem;
     }
 
@@ -227,6 +327,29 @@
     .card {
       background: var(--bg);
       padding: 1.75rem;
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+      z-index: 1;
+      position: relative;
+    }
+
+    .card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(20, 184, 166, 0.1));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--secondary);
+      font-family: "Sora", sans-serif;
     }
 
     .card h3 {
@@ -243,67 +366,127 @@
       line-height: 1.65;
     }
 
-    /* Case studies */
-    .case-study {
-      border: 1px solid var(--border);
-      margin-top: 2rem;
+    /* How It Works */
+    .process-flow {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      position: relative;
     }
 
-    .case-study + .case-study {
-      margin-top: 1px;
+    .process-line {
+      position: absolute;
+      top: 28px;
+      left: calc(16.67% + 20px);
+      right: calc(16.67% + 20px);
+      height: 2px;
+      background: var(--surface);
+      overflow: hidden;
     }
 
-    .case-header {
-      padding: 1.5rem 1.75rem;
-      border-bottom: 1px solid var(--border);
+    .process-line::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--secondary), var(--accent));
+      animation: flowLine 4s ease-in-out infinite;
+    }
+
+    @keyframes flowLine {
+      0% { left: -100%; }
+      50% { left: 0; }
+      100% { left: 100%; }
+    }
+
+    .process-step {
+      text-align: center;
+      padding: 0 1.5rem;
+      position: relative;
+    }
+
+    .process-number {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--border);
       display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 1rem;
-      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-family: "Sora", sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--secondary);
+      position: relative;
+      z-index: 2;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .case-header h3 {
+    .process-step:hover .process-number {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.1);
+    }
+
+    .process-step h3 {
       font-family: "Sora", "Inter", sans-serif;
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 600;
       color: var(--primary);
-    }
-
-    .case-header span {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    .case-body {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--border);
-    }
-
-    .case-col {
-      background: var(--bg);
-      padding: 1.5rem 1.75rem;
-    }
-
-    .case-col h4 {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
       margin-bottom: 0.5rem;
     }
 
-    .case-col p {
+    .process-step p {
       font-size: 0.9rem;
       color: var(--text-muted);
       line-height: 1.6;
+      max-width: 260px;
+      margin: 0 auto;
     }
 
-    /* Why AVNIX */
+    /* Use Cases */
+    .use-case-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 2.5rem;
+    }
+
+    .use-case-item {
+      background: var(--bg);
+      padding: 1.5rem;
+      text-align: center;
+      transition: background 0.25s ease;
+    }
+
+    .use-case-item:hover {
+      background: #fff;
+    }
+
+    .use-case-item::before {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 3px;
+      background: var(--highlight);
+      margin: 0 auto 1rem;
+      border-radius: 2px;
+    }
+
+    .use-case-item h3 {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--primary);
+      line-height: 1.4;
+    }
+
+    /* Why ZIVQEN */
     .strength-list {
       margin-top: 2.5rem;
       display: grid;
@@ -317,6 +500,13 @@
       background: var(--bg);
       padding: 1.5rem;
       text-align: center;
+      transition: box-shadow 0.25s ease;
+    }
+
+    .strength-item:hover {
+      box-shadow: var(--shadow-hover);
+      z-index: 1;
+      position: relative;
     }
 
     .strength-item::before {
@@ -336,34 +526,43 @@
     }
 
     /* Insights */
-    .insight-list {
+    .insight-grid {
       margin-top: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
       border: 1px solid var(--border);
     }
 
-    .insight-item {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 1rem;
-      padding: 1.25rem 1.75rem;
-      border-bottom: 1px solid var(--border);
+    .insight-card {
+      background: var(--bg);
+      padding: 1.75rem;
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
     }
 
-    .insight-item:last-child {
-      border-bottom: none;
+    .insight-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+      z-index: 1;
+      position: relative;
     }
 
-    .insight-item h3 {
+    .insight-card .tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .insight-card h3 {
+      font-family: "Sora", "Inter", sans-serif;
       font-size: 0.95rem;
       font-weight: 600;
       color: var(--text);
-    }
-
-    .insight-item span {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      white-space: nowrap;
+      line-height: 1.4;
     }
 
     /* Contact */
@@ -386,6 +585,7 @@
       padding: 2rem;
       border: 1px solid rgba(255, 255, 255, 0.12);
       max-width: 640px;
+      border-radius: var(--radius);
     }
 
     .contact-block p {
@@ -398,6 +598,7 @@
       color: #fff;
       font-weight: 600;
       border-bottom: 1px solid var(--accent);
+      transition: color 0.2s ease;
     }
 
     .contact-block a:hover {
@@ -410,6 +611,7 @@
       color: #94A3B8;
       padding: 2.5rem 0;
       font-size: 0.88rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .footer-inner {
@@ -425,6 +627,20 @@
       font-weight: 700;
       color: #fff;
       font-size: 0.95rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      color: #94A3B8;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
     }
 
     .footer-email a {
@@ -445,17 +661,27 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      .strength-list {
+      .strength-list,
+      .use-case-grid {
         grid-template-columns: repeat(3, 1fr);
       }
 
-      .case-body {
-        grid-template-columns: 1fr 1fr;
+      .process-flow {
+        grid-template-columns: 1fr;
+        gap: 2rem;
       }
 
-      .company-block {
+      .process-line {
+        display: none;
+      }
+
+      .about-block {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+      }
+
+      .insight-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -472,12 +698,9 @@
         grid-template-columns: 1fr;
       }
 
-      .strength-list {
+      .strength-list,
+      .use-case-grid {
         grid-template-columns: 1fr 1fr;
-      }
-
-      .case-body {
-        grid-template-columns: 1fr;
       }
 
       .navbar {
@@ -494,237 +717,206 @@
   </style>
 </head>
 <body>
-  <header class="header">
+  <header class="header" id="header">
     <div class="container navbar">
-      <a href="#" class="brand" aria-label="AVNIX Home">AVNIX<span>.space</span></a>
+      <a href="#" class="brand" aria-label="ZIVQEN Home">ZIVQEN<span>.site</span></a>
       <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#company">Company</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#solutions">Solutions</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#insights">Insights</a></li>
+        <li><a href="#" class="active" data-section="hero">Home</a></li>
+        <li><a href="#platform" data-section="platform">Platform</a></li>
+        <li><a href="#solutions" data-section="solutions">Solutions</a></li>
+        <li><a href="#automation" data-section="automation">Automation</a></li>
+        <li><a href="#insights" data-section="insights">Insights</a></li>
+        <li><a href="#contact" data-section="contact">Contact</a></li>
       </ul>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="container">
-        <h1>Building Scalable Digital Systems for the Future</h1>
-        <p>AVNIX designs and engineers reliable software systems, automation solutions, and modern digital infrastructure for businesses worldwide.</p>
+    <section class="hero" id="hero">
+      <div class="container reveal">
+        <h1>AI-Powered Systems for Automated Business Operations</h1>
+        <p>ZIVQEN designs intelligent automation systems, AI workflows, and scalable digital infrastructure that help businesses operate faster and smarter.</p>
         <div class="cta-group">
-          <a class="btn btn-primary" href="#services">Explore Services</a>
+          <a class="btn btn-primary" href="#platform">Explore Platform</a>
           <a class="btn btn-secondary" href="#solutions">View Solutions</a>
         </div>
       </div>
     </section>
 
-    <section id="company" class="section">
-      <div class="container">
-        <p class="section-label">Company</p>
-        <h2 class="section-title">Engineering Reliable Digital Systems for Modern Businesses</h2>
-        <div class="company-block">
-          <p>AVNIX is a technology engineering company specializing in building scalable, secure, and efficient digital systems.</p>
-          <p>We combine software engineering, automation, and system design to deliver long-term digital solutions.</p>
+    <section id="about" class="section">
+      <div class="container reveal">
+        <p class="section-label">About</p>
+        <h2 class="section-title">Intelligent Systems for Automated Digital Operations</h2>
+        <div class="about-block">
+          <p>ZIVQEN is a technology company specializing in AI systems, automation workflows, and digital intelligence solutions.</p>
+          <p>We help organizations reduce manual processes and improve operational efficiency through intelligent system design.</p>
         </div>
       </div>
     </section>
 
-    <section id="services" class="section">
-      <div class="container">
-        <p class="section-label">Services</p>
-        <h2 class="section-title">Enterprise Engineering Capabilities</h2>
-        <p class="section-copy">Structured technical services designed for organizations that require durable, maintainable, and high-performance digital infrastructure.</p>
+    <section id="platform" class="section">
+      <div class="container reveal">
+        <p class="section-label">Platform</p>
+        <h2 class="section-title">Core Automation Infrastructure</h2>
+        <p class="section-copy">A unified platform for building, deploying, and scaling intelligent automation systems across your organization.</p>
 
         <div class="card-grid cols-3">
           <article class="card">
-            <h3>Custom Software Engineering</h3>
-            <p>End-to-end development of business-critical applications built on clean architecture, rigorous testing standards, and maintainable codebases.</p>
+            <div class="card-icon">01</div>
+            <h3>AI Workflow Automation</h3>
+            <p>Design and deploy AI-driven workflows that automate complex business processes with intelligent decision routing and adaptive logic.</p>
           </article>
           <article class="card">
-            <h3>System Architecture Design</h3>
-            <p>Strategic system planning including service boundaries, data flow modeling, and infrastructure blueprints for long-term scalability.</p>
+            <div class="card-icon">02</div>
+            <h3>Smart Task Processing</h3>
+            <p>Automated task pipelines that classify, prioritize, and execute operations with minimal human intervention and maximum throughput.</p>
           </article>
           <article class="card">
-            <h3>Business Process Automation</h3>
-            <p>Workflow automation systems that reduce manual overhead, standardize operations, and integrate seamlessly with existing business tools.</p>
+            <div class="card-icon">03</div>
+            <h3>Data-driven Decision Systems</h3>
+            <p>Real-time analytics engines that transform operational data into actionable intelligence for faster, more accurate business decisions.</p>
           </article>
           <article class="card">
-            <h3>API &amp; Backend Development</h3>
-            <p>Secure, performant backend services and API layers engineered for reliability, extensibility, and enterprise integration requirements.</p>
+            <div class="card-icon">04</div>
+            <h3>API Integration Engine</h3>
+            <p>Connect disparate systems through a unified integration layer with standardized APIs, event triggers, and automated data synchronization.</p>
           </article>
           <article class="card">
-            <h3>Cloud Infrastructure Solutions</h3>
-            <p>Cloud-native deployment architectures with monitoring, security controls, and cost-optimized infrastructure management.</p>
+            <div class="card-icon">05</div>
+            <h3>Scalable Automation Architecture</h3>
+            <p>Cloud-native infrastructure designed to scale automation workloads reliably while maintaining performance and security standards.</p>
           </article>
         </div>
       </div>
     </section>
 
     <section id="solutions" class="section">
-      <div class="container">
+      <div class="container reveal">
         <p class="section-label">Solutions</p>
-        <h2 class="section-title">Industry-Focused Digital Systems</h2>
-        <p class="section-copy">Targeted engineering solutions aligned with enterprise operational requirements and digital transformation objectives.</p>
+        <h2 class="section-title">Business-Focused Automation Systems</h2>
+        <p class="section-copy">Outcome-driven solutions engineered to solve specific operational challenges and deliver measurable efficiency gains.</p>
 
-        <div class="card-grid cols-3">
+        <div class="card-grid cols-2">
           <article class="card">
-            <h3>Enterprise Systems</h3>
-            <p>Integrated platforms for core business operations, internal tooling, and cross-departmental system coordination.</p>
+            <h3>Enterprise Automation Systems</h3>
+            <p>End-to-end automation platforms that unify cross-departmental workflows, reduce operational bottlenecks, and standardize business processes at scale.</p>
           </article>
           <article class="card">
-            <h3>Workflow Automation</h3>
-            <p>Intelligent process pipelines that automate repetitive tasks, enforce business rules, and improve operational throughput.</p>
+            <h3>AI Workflow Optimization</h3>
+            <p>Intelligent workflow redesign that leverages AI to eliminate redundancies, accelerate processing cycles, and improve output quality.</p>
           </article>
           <article class="card">
-            <h3>Digital Transformation</h3>
-            <p>Modernization of legacy systems and manual processes into efficient, data-driven digital workflows.</p>
+            <h3>Digital Process Engineering</h3>
+            <p>Systematic transformation of manual and legacy processes into efficient, automated digital workflows with full audit and compliance support.</p>
           </article>
           <article class="card">
-            <h3>Data &amp; Integration Systems</h3>
-            <p>Unified data pipelines, ETL processes, and system integrations that enable reliable information flow across platforms.</p>
+            <h3>Smart Data Integration</h3>
+            <p>Unified data pipelines that connect platforms, validate information integrity, and enable real-time reporting across the organization.</p>
           </article>
           <article class="card">
-            <h3>Scalable Web Platforms</h3>
-            <p>High-performance web applications and portals engineered for growth, security, and sustained user demand.</p>
+            <h3>Custom AI Tool Development</h3>
+            <p>Purpose-built AI tools tailored to specific business functions — from document processing to predictive analytics and intelligent routing.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="work" class="section">
-      <div class="container">
-        <p class="section-label">Work</p>
-        <h2 class="section-title">Engineering Case Studies</h2>
-        <p class="section-copy">Measurable engineering outcomes delivered through structured problem analysis and systematic technical execution.</p>
+    <section id="automation" class="section">
+      <div class="container reveal">
+        <p class="section-label">Automation</p>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-copy">A structured approach to designing and deploying intelligent automation systems for real business outcomes.</p>
 
-        <article class="case-study">
-          <div class="case-header">
-            <h3>Enterprise Workflow Automation Platform</h3>
-            <span>Operations &amp; Automation</span>
+        <div class="process-flow">
+          <div class="process-line" aria-hidden="true"></div>
+          <div class="process-step">
+            <div class="process-number">1</div>
+            <h3>Analyze Business Process</h3>
+            <p>Map existing workflows, identify automation opportunities, and define performance benchmarks.</p>
           </div>
-          <div class="case-body">
-            <div class="case-col">
-              <h4>Problem</h4>
-              <p>Manual approval chains across four departments caused 48-hour processing delays and inconsistent audit trails.</p>
-            </div>
-            <div class="case-col">
-              <h4>Approach</h4>
-              <p>Mapped existing workflows, defined service boundaries, and implemented event-driven automation with role-based controls.</p>
-            </div>
-            <div class="case-col">
-              <h4>Solution</h4>
-              <p>Deployed a centralized automation platform with API integrations, automated routing, and real-time status tracking.</p>
-            </div>
-            <div class="case-col">
-              <h4>Outcome</h4>
-              <p>Processing time reduced by 72%. Full audit compliance achieved with zero manual handoff errors.</p>
-            </div>
+          <div class="process-step">
+            <div class="process-number">2</div>
+            <h3>Design Automation System</h3>
+            <p>Architect intelligent workflows with AI decision layers, integration points, and scalability requirements.</p>
           </div>
-        </article>
-
-        <article class="case-study">
-          <div class="case-header">
-            <h3>Cloud Infrastructure Migration</h3>
-            <span>Infrastructure &amp; Systems</span>
+          <div class="process-step">
+            <div class="process-number">3</div>
+            <h3>Deploy Intelligent Workflow</h3>
+            <p>Launch production-ready automation with monitoring, optimization, and continuous improvement protocols.</p>
           </div>
-          <div class="case-body">
-            <div class="case-col">
-              <h4>Problem</h4>
-              <p>On-premise infrastructure limited scalability and incurred rising maintenance costs with single points of failure.</p>
-            </div>
-            <div class="case-col">
-              <h4>Approach</h4>
-              <p>Conducted infrastructure assessment, designed cloud-native architecture, and executed phased migration with zero-downtime strategy.</p>
-            </div>
-            <div class="case-col">
-              <h4>Solution</h4>
-              <p>Migrated core services to containerized cloud infrastructure with automated scaling, monitoring, and disaster recovery.</p>
-            </div>
-            <div class="case-col">
-              <h4>Outcome</h4>
-              <p>99.97% uptime achieved. Infrastructure costs reduced by 38% with 4x improved deployment velocity.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="case-study">
-          <div class="case-header">
-            <h3>API Integration &amp; Data Systems</h3>
-            <span>Integration &amp; Data</span>
-          </div>
-          <div class="case-body">
-            <div class="case-col">
-              <h4>Problem</h4>
-              <p>Disconnected systems created data silos, duplicate entries, and delayed reporting across business units.</p>
-            </div>
-            <div class="case-col">
-              <h4>Approach</h4>
-              <p>Defined unified data schemas, built standardized API middleware, and established synchronization protocols.</p>
-            </div>
-            <div class="case-col">
-              <h4>Solution</h4>
-              <p>Delivered an integration layer connecting six platforms with automated data validation and centralized reporting.</p>
-            </div>
-            <div class="case-col">
-              <h4>Outcome</h4>
-              <p>Data accuracy improved to 99.4%. Reporting cycles shortened from weekly to real-time availability.</p>
-            </div>
-          </div>
-        </article>
+        </div>
       </div>
     </section>
 
-    <section id="why" class="section">
-      <div class="container">
-        <p class="section-label">Why AVNIX</p>
-        <h2 class="section-title">Technical Strengths</h2>
-        <p class="section-copy">A disciplined engineering approach focused on system reliability, architectural clarity, and long-term maintainability.</p>
+    <section id="use-cases" class="section">
+      <div class="container reveal">
+        <p class="section-label">Use Cases</p>
+        <h2 class="section-title">Industry Applications</h2>
+        <p class="section-copy">Intelligent automation systems deployed across industries to streamline operations and enhance decision-making.</p>
 
-        <div class="strength-list">
-          <div class="strength-item"><p>Engineering-first approach</p></div>
-          <div class="strength-item"><p>Scalable system design</p></div>
-          <div class="strength-item"><p>Clean architecture standards</p></div>
-          <div class="strength-item"><p>Performance-driven development</p></div>
-          <div class="strength-item"><p>Reliable long-term solutions</p></div>
+        <div class="use-case-grid">
+          <div class="use-case-item"><h3>E-commerce Automation</h3></div>
+          <div class="use-case-item"><h3>Finance Operations Systems</h3></div>
+          <div class="use-case-item"><h3>Customer Support AI</h3></div>
+          <div class="use-case-item"><h3>HR Workflow Automation</h3></div>
+          <div class="use-case-item"><h3>Data Processing Systems</h3></div>
         </div>
       </div>
     </section>
 
     <section id="insights" class="section">
-      <div class="container">
+      <div class="container reveal">
         <p class="section-label">Insights</p>
         <h2 class="section-title">Technical Knowledge Hub</h2>
-        <p class="section-copy">Engineering perspectives on system design, infrastructure, and digital operations.</p>
+        <p class="section-copy">Engineering perspectives on AI system design, automation strategy, and digital transformation.</p>
 
-        <div class="insight-list">
-          <article class="insight-item">
-            <h3>System Design Principles for Enterprise Applications</h3>
-            <span>System Design</span>
+        <div class="insight-grid">
+          <article class="insight-card">
+            <p class="tag">System Design</p>
+            <h3>AI System Design Principles for Enterprise Automation</h3>
           </article>
-          <article class="insight-item">
-            <h3>Engineering Best Practices for Maintainable Codebases</h3>
-            <span>Engineering</span>
+          <article class="insight-card">
+            <p class="tag">Automation</p>
+            <h3>Automation Strategies for Operational Efficiency</h3>
           </article>
-          <article class="insight-item">
-            <h3>Automation Strategies for Business Process Optimization</h3>
-            <span>Automation</span>
+          <article class="insight-card">
+            <p class="tag">Optimization</p>
+            <h3>Workflow Optimization Techniques for Scalable Systems</h3>
           </article>
-          <article class="insight-item">
-            <h3>Digital Infrastructure Trends for Scalable Organizations</h3>
-            <span>Infrastructure</span>
+          <article class="insight-card">
+            <p class="tag">Transformation</p>
+            <h3>Digital Transformation Frameworks for Modern Organizations</h3>
           </article>
         </div>
       </div>
     </section>
 
+    <section id="why" class="section">
+      <div class="container reveal">
+        <p class="section-label">Why ZIVQEN</p>
+        <h2 class="section-title">Engineering Advantages</h2>
+        <p class="section-copy">A disciplined approach to building automation systems that deliver lasting operational value.</p>
+
+        <div class="strength-list">
+          <div class="strength-item"><p>AI-native architecture</p></div>
+          <div class="strength-item"><p>Scalable automation systems</p></div>
+          <div class="strength-item"><p>Secure engineering standards</p></div>
+          <div class="strength-item"><p>Business-first implementation</p></div>
+          <div class="strength-item"><p>Performance-focused design</p></div>
+        </div>
+      </div>
+    </section>
+
     <section id="contact" class="section contact-section">
-      <div class="container">
+      <div class="container reveal">
         <p class="section-label">Contact</p>
-        <h2 class="section-title">Business Inquiries</h2>
+        <h2 class="section-title">Get in Touch</h2>
         <div class="contact-block">
-          <p>For business inquiries, partnerships, or project discussions, contact us directly at <a href="mailto:contact@avnix.space">contact@avnix.space</a></p>
+          <p>For partnerships, enterprise inquiries, or automation system development, contact us directly at <a href="mailto:contact@zivqen.site">contact@zivqen.site</a></p>
+          <button class="btn btn-copy" id="copyEmailBtn" type="button" aria-label="Copy email address">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span id="copyEmailText">Copy Email</span>
+          </button>
         </div>
       </div>
     </section>
@@ -732,10 +924,75 @@
 
   <footer>
     <div class="container footer-inner">
-      <span class="footer-brand">AVNIX Space</span>
-      <span class="footer-email"><a href="mailto:contact@avnix.space">contact@avnix.space</a></span>
-      <span class="copyright">© 2026 AVNIX Space. All rights reserved.</span>
+      <span class="footer-brand">ZIVQEN</span>
+      <div class="footer-links">
+        <span class="footer-email"><a href="mailto:contact@zivqen.site">contact@zivqen.site</a></span>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+      <span class="copyright">&copy; 2026 ZIVQEN. All rights reserved.</span>
     </div>
   </footer>
+
+  <script>
+    const header = document.getElementById("header");
+    const navLinks = document.querySelectorAll(".nav-links a[data-section]");
+    const sections = document.querySelectorAll("section[id]");
+    const reveals = document.querySelectorAll(".reveal");
+
+    window.addEventListener("scroll", () => {
+      header.classList.toggle("scrolled", window.scrollY > 20);
+
+      let current = "";
+      sections.forEach((section) => {
+        const top = section.offsetTop - 120;
+        if (window.scrollY >= top) {
+          current = section.id;
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.toggle("active", link.dataset.section === current || (current === "" && link.dataset.section === "hero"));
+      });
+    });
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    reveals.forEach((el) => revealObserver.observe(el));
+
+    const copyBtn = document.getElementById("copyEmailBtn");
+    const copyText = document.getElementById("copyEmailText");
+    const email = "contact@zivqen.site";
+
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(email);
+        copyBtn.classList.add("copied");
+        copyText.textContent = "Copied!";
+        setTimeout(() => {
+          copyBtn.classList.remove("copied");
+          copyText.textContent = "Copy Email";
+        }, 2000);
+      } catch {
+        const input = document.createElement("input");
+        input.value = email;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand("copy");
+        document.body.removeChild(input);
+        copyText.textContent = "Copied!";
+        setTimeout(() => { copyText.textContent = "Copy Email"; }, 2000);
+      }
+    });
+  </script>
 </body>
 </html>
